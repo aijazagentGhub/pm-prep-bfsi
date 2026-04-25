@@ -3,40 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior PM Strategy Hub - Unique Data</title>
+    <title>Senior PM Strategy Hub - Fixed Content</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --primary: #2563eb; --slate-900: #0f172a; --slate-100: #f1f5f9; }
         body { background-color: #f8fafc; font-family: 'Inter', sans-serif; color: #334155; }
         .container-fluid { max-width: 1600px; padding: 20px; }
         .hub-shell { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 25px; min-height: 92vh; }
-        
         .nav-pills { background: var(--slate-100); padding: 6px; border-radius: 10px; margin-bottom: 25px; gap: 4px; }
         .nav-pills .nav-link { font-weight: 700; color: #64748b; border: 1px solid transparent; flex: 1; text-align: center; border-radius: 8px; }
         .nav-pills .nav-link.active { background: white; color: var(--primary); border-color: #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
-
         .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
         .card-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; background: #fff; min-height: 180px; display: flex; flex-direction: column; }
-        .card-item:hover { border-color: var(--primary); }
-        
         .card-header-text { font-weight: 800; font-size: 1.05rem; color: var(--slate-900); margin-bottom: 10px; }
         .card-body-points { font-size: 0.9rem; line-height: 1.6; color: #475569; flex-grow: 1; }
         .card-body-points ul { padding-left: 1.2rem; margin: 0; }
-        
         .card-footer-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; pt: 10px; border-top: 1px solid #f1f5f9; }
         .type-tag { font-size: 0.65rem; font-weight: 800; color: var(--primary); background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
-        .link-ref { font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-decoration: none; }
     </style>
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="hub-shell">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold m-0 text-dark">Senior Product Strategy Hub</h3>
-            <span class="badge bg-primary px-3 py-2">MANUALLY CURATED DATA</span>
-        </div>
-
+        <h3 class="fw-bold mb-4 text-dark">Senior Product Leadership Hub</h3>
         <ul class="nav nav-pills" id="tabSet">
             <li class="nav-item"><button class="nav-link active" onclick="loadTab('foundations')">PM Foundations (Basics)</button></li>
             <li class="nav-item"><button class="nav-link" onclick="loadTab('qa')">Interview Q&A (Strategy)</button></li>
@@ -44,7 +33,6 @@
             <li class="nav-item"><button class="nav-link" onclick="loadTab('glossary')">Strategy Terms</button></li>
             <li class="nav-item"><button class="nav-link" onclick="loadTab('articles')">Industry Reads</button></li>
         </ul>
-
         <div id="displayGrid" class="content-grid"></div>
         <nav class="d-flex justify-content-center mt-4"><ul class="pagination" id="pageNav"></ul></nav>
     </div>
@@ -55,51 +43,38 @@
     let currentKey = 'foundations';
     let currentPage = 1;
 
-    // REAL, UNIQUE DATA SOURCED FROM LEADING PM REWARDS
-    const DATA_VAULT = {
+    // NO GENERATION - ONLY REAL DATA
+    const DATA = {
         foundations: [
-            { t: "Revenue vs. GMV", b: ["GMV is the total dollar value of everything sold.", "Revenue is the cut the platform actually keeps.", "Senior PMs must monitor the 'Take Rate' (Rev/GMV)."], tag: "Finance", url: "https://www.investopedia.com" },
-            { t: "Unit Economics (LTV/CAC)", b: ["Customer Lifetime Value must be 3x Acquisition Cost.", "Measure how long it takes to 'pay back' the CAC.", "Focus on 'Contribution Margin' per user."], tag: "Growth", url: "https://www.reforge.com" },
-            { t: "Churn: Structural vs. Behavioral", b: ["Structural: Payment expired or card declined.", "Behavioral: User stopped finding value in the product.", "Strategy: Fix Structural with tech; Fix Behavioral with product features."], tag: "Retention", url: "https://amplitude.com" },
-            { t: "The North Star Metric", b: ["The one metric that captures the core value of your product.", "Should be a leading indicator of long-term success.", "Avoid 'Vanity Metrics' like total registered users."], tag: "Strategy", url: "https://www.productplan.com" },
-            { t: "ARPU (Average Revenue Per User)", b: ["Crucial for B2B and SaaS monetization.", "Helps determine if your high-touch support is worth the cost.", "Growth is either through more users or higher ARPU."], tag: "Business", url: "https://mixpanel.com" },
-            { t: "Conversion Funnel Analysis", b: ["Identify where users 'drop off' in the journey.", "Optimize the highest friction step first for best ROI.", "Senior PMs focus on 'Activation' metrics."], tag: "Analytics", url: "https://www.hotjar.com" }
+            { t: "Revenue vs. GMV", b: ["Gross Merchandise Value tracks total transaction volume.", "Revenue is the platform's actual take-home earnings.", "Senior PMs must protect 'Take Rate' against competition."], tag: "Finance" },
+            { t: "LTV/CAC Efficiency", b: ["LTV calculates the discounted value of a user over time.", "CAC measures the blended cost of acquiring that user.", "A healthy 3:1 ratio is the industry gold standard."], tag: "Growth" },
+            { t: "Churn: Structural vs. Behavioral", b: ["Structural: Failed payments or technical expiration.", "Behavioral: Loss of perceived product value or utility.", "Retention strategy must address both separately."], tag: "Retention" },
+            { t: "North Star Metric Selection", b: ["Must lead to revenue but measure value delivery.", "Avoid 'Vanity Metrics' like total signups.", "Example: WhatsApp's NSM is 'Messages Sent'."], tag: "Strategy" },
+            { t: "Unit Economics (Margin)", b: ["Calculate profit/loss on a per-customer basis.", "Subtract COGS and variable OpEx from ARPU.", "Critical for demonstrating path to profitability."], tag: "Business" },
+            { t: "The Retention Curve", b: ["Plot percentage of active users over time.", "A 'flat' curve indicates product-market fit.", "Dropping to zero suggests a 'leaky bucket' problem."], tag: "Metrics" },
+            { t: "Conversion Funnel Leaks", b: ["Map the path from landing to transaction.", "Prioritize fixing the stage with the highest drop-off.", "Focus on 'Activation' for long-term retention."], tag: "Analytics" },
+            { t: "Network Effects (Flywheel)", b: ["Value increases as the user base grows.", "Can be direct (social) or indirect (marketplace).", "The most powerful competitive moat for SaaS."], tag: "Strategy" }
         ],
         qa: [
-            { t: "Managing Stakeholder Conflicts", b: ["Use data as the neutral referee in arguments.", "Align everyone back to the 'North Star' goal.", "Acknowledge the stakeholder's intent before disagreeing."], tag: "Leadership", url: "https://tryexponent.com" },
-            { t: "When to Kill a Feature?", b: ["When the maintenance cost outweighs the user value.", "When it distracts from the core product experience.", "Always provide a 'Sunsetting' path for existing users."], tag: "Prioritization", url: "https://www.svpg.com" },
-            { t: "Strategy for a Saturated Market", b: ["Look for underserved 'Niche' segments.", "Focus on UX as the primary differentiator.", "Shift from Acquisition to Retention as a moat."], tag: "Market", url: "https://hbr.org" }
+            { t: "Leading Mid-Quarter Goal Shifts", b: ["Acknowledge the business reality to the team.", "Recalculate 'Opportunity Cost' of current work.", "Protect morale by focusing on the new 'Mission'."], tag: "Leadership" },
+            { t: "Handling High-Touch Stakeholders", b: ["Establish a 'Source of Truth' dashboard.", "Move from 'Opinion-based' to 'Evidence-based' talks.", "Set clear 'Check-in' cadences to avoid micromanagement."], tag: "Influence" },
+            { t: "Strategy for Mature Products", b: ["Shift focus from Acquisition to Expansion (Upsell).", "Invest in efficiency and cost-per-user reduction.", "Identify adjacent markets for new growth levers."], tag: "Lifecycle" },
+            { t: "Prioritizing Infrastructure vs. Growth", b: ["Quantify the risk of downtime or technical debt.", "Allocate a consistent 20% 'Innovation Tax'.", "Communicate debt as a 'Speed Barrier' for future features."], tag: "Execution" }
         ],
         cases: [
-            { t: "Netflix: The Pivot to Streaming", b: ["Cannibalized their own DVD-by-mail business early.", "Bet heavily on proprietary content as a moat.", "Used data to predict exactly what shows people would watch."], tag: "Strategy", url: "https://hbr.org" },
-            { t: "Stripe: The API-First Moat", b: ["Treated developers as the primary customer.", "Simplified the complex financial world into 7 lines of code.", "Focused on 'Time-to-First-Transaction' as a metric."], tag: "Product", url: "https://stripe.com/blog" }
+            { t: "Netflix: Pivot to Streaming", b: ["Used DVD revenue to fund the streaming future.", "Drastic cultural shift to 'Context, not Control'.", "Aggressive investment in original IP as a moat."], tag: "Strategy" },
+            { t: "Stripe: Developer-First Growth", b: ["Simplified complex banking into a clean API.", "Won the market by solving the 'Integration' pain point.", "Excellent documentation used as a marketing tool."], tag: "B2B" },
+            { t: "Airbnb: The Move to Experiences", b: ["Expanded beyond lodging into the full trip journey.", "Leveraged existing trust to cross-sell new categories.", "Faced regulatory hurdles by localized strategy."], tag: "Market" }
         ],
         glossary: [
-            { t: "MECE Framework", b: ["Mutually Exclusive, Collectively Exhaustive.", "A McKinsey framework for problem-solving.", "Ensures no logical gaps in your strategic thinking."], tag: "Logic", url: "https://www.mckinsey.com" },
-            { t: "Network Effects", b: ["The product becomes more valuable as more people use it.", "Direct (WhatsApp) vs. Indirect (App Store).", "The strongest moat in the digital economy."], tag: "Economics", url: "https://a16z.com" }
+            { t: "MECE (McKinsey Framework)", b: ["Mutually Exclusive, Collectively Exhaustive.", "A method to break down problems without gaps.", "Used to structure complex strategy responses."], tag: "Logic" },
+            { t: "TAM/SAM/SOM Analysis", b: ["Total, Serviceable, and Obtainable market sizes.", "Helps set realistic targets for product growth.", "Essential for board-level strategy presentations."], tag: "Market" }
         ],
         articles: [
-            { t: "Marty Cagan: Product vs. Feature Teams", b: ["Product teams are empowered to solve problems.", "Feature teams are just 'order takers' for stakeholders.", "High-performing companies use Product teams."], tag: "Culture", url: "https://www.svpg.com" },
-            { t: "The Rise of the Product Operating Model", b: ["How companies are shifting from Projects to Products.", "Focus on continuous discovery over fixed roadmaps.", "Outcome-based vs. Output-based performance."], tag: "Trends", url: "https://www.mckinsey.com" }
+            { t: "Cagan: Empowered vs. Feature Teams", b: ["Empowered teams are given problems to solve.", "Feature teams are given a list of things to build.", "Success comes from outcome-based ownership."], tag: "Culture" },
+            { t: "The End of 'Growth at all Costs'", b: ["Shift in 2026 toward sustainable profitability.", "Emphasis on LTV/CAC and payback periods.", "Investors now prioritize 'Efficiency' over 'Scale'."], tag: "Trends" }
         ]
     };
-
-    // This ensures that even if we need 100 entries, they stay unique by adding strategic context
-    function getDisplayData(key) {
-        let base = DATA_VAULT[key];
-        let result = [...base];
-        // If we need to fill to 100, we add unique strategic variations of the top questions
-        for (let i = base.length; i < 100; i++) {
-            let item = base[i % base.length];
-            result.push({
-                t: `${item.t} - Strategy Layer ${Math.floor(i/base.length) + 1}`,
-                b: [`Senior level deep-dive into ${item.t}.`, "Focus on cross-functional impact.", "Link back to P&L and long-term vision."],
-                tag: item.tag,
-                url: item.url
-            });
-        }
-        return result;
-    }
 
     function loadTab(k) {
         currentKey = k; currentPage = 1;
@@ -110,23 +85,17 @@
     function render() {
         const grid = document.getElementById('displayGrid');
         const nav = document.getElementById('pageNav');
-        const fullData = getDisplayData(currentKey);
-        const items = fullData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+        const items = DATA[currentKey].slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
         grid.innerHTML = items.map(item => `
             <div class="card-item shadow-sm">
                 <div class="card-header-text">${item.t}</div>
-                <div class="card-body-points">
-                    <ul>${item.b.map(pt => `<li>${pt}</li>`).join('')}</ul>
-                </div>
-                <div class="card-footer-meta">
-                    <span class="type-tag">${item.tag}</span>
-                    <a href="${item.url}" target="_blank" class="link-ref">Ref Source →</a>
-                </div>
+                <div class="card-body-points"><ul>${item.b.map(pt => `<li>${pt}</li>`).join('')}</ul></div>
+                <div class="card-footer-meta"><span class="type-tag">${item.tag}</span><span class="small text-muted">Ref: Industry Standard</span></div>
             </div>
         `).join('');
 
-        const total = Math.ceil(fullData.length / PAGE_SIZE);
+        const total = Math.ceil(DATA[currentKey].length / PAGE_SIZE);
         nav.innerHTML = '';
         for (let i = 1; i <= total; i++) {
             nav.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" onclick="setPage(${i})">${i}</a></li>`;
