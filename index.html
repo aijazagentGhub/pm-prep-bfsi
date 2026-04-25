@@ -3,101 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite PM Interview Portal - 2026 Edition</title>
+    <title>Comprehensive PM Interview Portal - 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; padding: 40px 0; font-family: 'Inter', -apple-system, sans-serif; }
-        .container { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
-        .nav-tabs .nav-link { color: #495057; font-weight: 600; padding: 12px 24px; border: none; }
+        body { background-color: #f4f7f9; padding: 30px 0; font-family: 'Inter', sans-serif; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .nav-tabs .nav-link { font-weight: 600; color: #555; border: none; padding: 15px 20px; }
         .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; background: transparent; }
-        .btn-visit { background-color: #0d6efd; color: white; border-radius: 6px; padding: 6px 14px; font-size: 0.85rem; text-decoration: none; display: inline-block; transition: 0.2s; }
-        .btn-visit:hover { background-color: #0056b3; color: white; transform: translateY(-1px); }
-        .badge-qa { background-color: #e7f1ff; color: #0d6efd; border: 1px solid #cfe2ff; font-weight: 500; font-size: 0.75rem; }
+        .btn-visit { font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; text-decoration: none; background: #0d6efd; color: white; display: inline-block; }
+        .badge-ai { background-color: #6f42c1; color: white; font-size: 0.7rem; }
+        .badge-qa { background-color: #e7f1ff; color: #0d6efd; border: 1px solid #cfe2ff; font-size: 0.7rem; display: block; margin-top: 5px; }
+        .section-header { border-left: 4px solid #0d6efd; padding-left: 15px; margin-bottom: 20px; color: #333; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="mb-4 d-flex justify-content-between align-items-center">
-        <div>
-            <h2 class="fw-bold">BFSI PM Prep Dashboard</h2>
-            <p class="text-muted mb-0">Verified 2026 Resources for Product Strategy & Domain Mastery.</p>
-        </div>
-        <span class="badge bg-success px-3 py-2">Verified Links: April 2026</span>
-    </div>
+    <h2 class="fw-bold text-primary mb-1">BFSI PM Master Repository</h2>
+    <p class="text-muted mb-4">Focus: Strategy, AI Transformation, and Product Design (v2026.4)</p>
     
-    <ul class="nav nav-tabs" id="prepTabs" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#cases" type="button">Case Studies & Q&A</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#glossary" type="button">Strategic Glossary</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">Interview Frameworks</button></li>
+    <ul class="nav nav-tabs" id="mainTab" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#cases" type="button">1. Case Studies & Q&A</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#glossary" type="button">2. PM Strategic Glossary</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">3. Interview Articles</button></li>
     </ul>
 
-    <div class="tab-content pt-4" id="prepTabsContent">
-        
+    <div class="tab-content pt-4">
         <div class="tab-pane fade show active" id="cases" role="tabpanel">
             <table class="table table-hover align-middle border">
                 <thead class="table-light">
-                    <tr>
-                        <th style="width: 15%">Firm</th>
-                        <th style="width: 40%">Product Story</th>
-                        <th style="width: 30%">Interview Focus</th>
-                        <th style="width: 15%">Resource</th>
-                    </tr>
+                    <tr><th>Topic / Firm</th><th>Product Context</th><th>Interview Focus (Q&A)</th><th>Resource</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>DBS Bank</strong></td>
-                        <td>How they moved from traditional banking to a "GANDALF" tech mindset.</td>
-                        <td><span class="badge badge-qa mb-1">Q: Digital Transformation</span> A: Focus on cultural change + API-first architecture.</td>
-                        <td><a href="https://www.dbs.com/about-us/who-we-are/awards-accolades/a-world-first/euromoney-private-banking-awards-2026" target="_blank" class="btn-visit">View Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Revolut</strong></td>
-                        <td>A masterclass in customer acquisition through "viral loops" and high-speed onboarding.</td>
-                        <td><span class="badge badge-qa mb-1">Q: Growth</span> A: Reducing friction in the KYC funnel is the primary lever.</td>
-                        <td><a href="https://impact.com/downloads/case-studies/Revolut-case-study-0625.pdf" target="_blank" class="btn-visit">View Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Nubank</strong></td>
-                        <td>Disrupting credit markets by simplifying fees and 100% mobile-first service.</td>
-                        <td><span class="badge badge-qa mb-1">Q: Design</span> A: Designing for the 'unbanked'—simplicity and transparency.</td>
-                        <td><a href="https://growth.design/case-studies/nubank-onboarding" target="_blank" class="btn-visit">View Case</a></td>
-                    </tr>
+                    <tr><td><strong>DBS Bank</strong></td><td>Legacy to Digital.</td><td><span class="badge badge-qa">Q: How to scale digital culture?</span></td><td><a href="https://www.dbs.com/innovation/index/default.page" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Nubank</strong></td><td>Low-friction Credit.</td><td><span class="badge badge-qa">Q: Design for unbanked users.</span></td><td><a href="https://nubank.com.br/en/about-us/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>JPMC (AI Research)</strong></td><td><span class="badge badge-ai">GenAI</span> Fraud Detection.</td><td><span class="badge badge-qa">Q: Prioritize AI vs User UX?</span></td><td><a href="https://www.jpmorganchase.com/news-stories/jpmorgan-chase-to-invest-in-ai" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Stripe</strong></td><td>API as a Product.</td><td><span class="badge badge-qa">Q: How to measure Developer NPS?</span></td><td><a href="https://stripe.com/en-in/newsroom" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Ant Group</strong></td><td>Super App Strategy.</td><td><span class="badge badge-qa">Q: When to stop adding features?</span></td><td><a href="https://www.antgroup.com/en/news" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Wise</strong></td><td>Transparency in Forex.</td><td><span class="badge badge-qa">Q: Build trust in high-value txn.</span></td><td><a href="https://wise.com/us/blog/category/inside-wise" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Goldman (Marcus)</strong></td><td>Retail Strategy.</td><td><span class="badge badge-qa">Q: Why did Goldman enter Retail?</span></td><td><a href="https://www.goldmansachs.com/intelligence/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Klarna</strong></td><td>AI Assistant for Finance.</td><td><span class="badge badge-qa">Q: Impact of AI on Customer Support.</span></td><td><a href="https://www.klarna.com/international/press/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Standard Chartered</strong></td><td>Nexus (BaaS).</td><td><span class="badge badge-qa">Q: Explain Banking-as-a-Service.</span></td><td><a href="https://www.sc.com/en/media/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Ping An</strong></td><td><span class="badge badge-ai">AI</span> InsurTech Claims.</td><td><span class="badge badge-qa">Q: Using AI to detect fraud.</span></td><td><a href="https://www.pingan.cn/en/news/index.shtml" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Affirm</strong></td><td>Ethical BNPL.</td><td><span class="badge badge-qa">Q: Revenue vs Customer Health.</span></td><td><a href="https://www.affirm.com/press" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Better.com</strong></td><td>Automated Mortgage.</td><td><span class="badge badge-qa">Q: Automating complex workflows.</span></td><td><a href="https://better.com/about-us" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Revolut</strong></td><td>Crypto Integration.</td><td><span class="badge badge-qa">Q: Manage risk in volatile assets.</span></td><td><a href="https://www.revolut.com/newsroom/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Robinhood</strong></td><td>Financial Democracy.</td><td><span class="badge badge-qa">Q: Gamification vs Regulation.</span></td><td><a href="https://newsroom.aboutrobinhood.com/" target="_blank" class="btn-visit">View</a></td></tr>
+                    <tr><td><strong>Zest AI</strong></td><td><span class="badge badge-ai">AI</span> Lending.</td><td><span class="badge badge-qa">Q: Bias in AI credit models.</span></td><td><a href="https://www.zest.ai/news" target="_blank" class="btn-visit">View</a></td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="tab-pane fade" id="glossary" role="tabpanel">
             <table class="table table-hover border">
-                <thead class="table-light"><tr><th>Strategic Term</th><th>Interview Context</th><th>Detail Link</th></tr></thead>
+                <thead class="table-light"><tr><th>Term</th><th>Strategy/Interview Context</th><th>Action</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Product Vision</strong></td>
-                        <td>The "North Star" (5+ years). Focuses on the impact on the customer's world.</td>
-                        <td><a href="https://draft.io/example/product-vision-board" target="_blank" class="btn-visit">Concept</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Product Mission</strong></td>
-                        <td>The everyday "How." What the team is shipping today to reach the vision.</td>
-                        <td><a href="https://amplitude.com/blog" target="_blank" class="btn-visit">Concept</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>MECE Framework</strong></td>
-                        <td>Crucial for structuring answers. "Mutually Exclusive, Collectively Exhaustive."</td>
-                        <td><a href="https://productfolio.com/circles-method/" target="_blank" class="btn-visit">Concept</a></td>
-                    </tr>
+                    <tr><td><strong>Product Vision</strong></td><td>The 5-10 year objective. <em>Example: Bank for the unbanked.</em></td><td><a href="https://www.productboard.com/blog/product-vision/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Product Mission</strong></td><td>The 1-2 year operational goal.</td><td><a href="https://amplitude.com/blog" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>North Star Metric</strong></td><td>Single metric of value. <em>(e.g., Transactions per user)</em>.</td><td><a href="https://mixpanel.com/blog" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>MECE</strong></td><td>Mutually Exclusive, Collectively Exhaustive (Answer structure).</td><td><a href="https://managementconsulted.com/mece-framework/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>First Principles</strong></td><td>Breaking a problem to fundamental truths.</td><td><a href="https://fs.blog/first-principles/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>JTBD</strong></td><td>Jobs To Be Done framework for user intent.</td><td><a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Product-Led Growth</strong></td><td>The product is the main driver of acquisition.</td><td><a href="https://productled.com/blog" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Network Effects</strong></td><td>Value increases as user base grows.</td><td><a href="https://a16z.com/tag/network-effects/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Cannibalization</strong></td><td>New product eating into existing product share.</td><td><a href="https://www.investopedia.com/terms/m/marketcannibalization.asp" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Churn</strong></td><td>Rate at which users leave.</td><td><a href="https://churnzero.com/blog" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>LTV/CAC</strong></td><td>Customer Lifetime Value vs Acquisition Cost.</td><td><a href="https://vwo.com/blog" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>Compliance-by-Design</strong></td><td>Integrating regulation into the UI/UX.</td><td><a href="https://www.deloitte.com/insights.html" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>The Mom Test</strong></td><td>Validation without bias.</td><td><a href="https://blog.uxtweak.com/the-mom-test/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>APIs (Open Banking)</strong></td><td>Productizing data access for 3rd parties.</td><td><a href="https://openbanking.org.uk/" target="_blank" class="btn-visit">Learn</a></td></tr>
+                    <tr><td><strong>A/B Testing</strong></td><td>Hypothesis testing with two variants.</td><td><a href="https://vwo.com/ab-testing/" target="_blank" class="btn-visit">Learn</a></td></tr>
                 </tbody>
             </table>
         </div>
 
         <div class="tab-pane fade" id="articles" role="tabpanel">
-             <div class="list-group shadow-sm">
-                <a href="https://www.tryexponent.com/blog/the-ultimate-pm-interview-study-plan" target="_blank" class="list-group-item list-group-item-action"><strong>Study Plan:</strong> The Exponent 2026 Guide to PM Interviews.</a>
-                <a href="https://usersnap.com/blog/circles-method-examples/" target="_blank" class="list-group-item list-group-item-action"><strong>CIRCLES Method:</strong> Detailed examples and common mistakes to avoid.</a>
-                <a href="https://www.lewis-lin.com/blog" target="_blank" class="list-group-item list-group-item-action"><strong>Lewis C. Lin Blog:</strong> Authentic Q&A from the creator of the CIRCLES method.</a>
+            <div class="list-group">
+                <a href="https://tryexponent.com/blog/product-manager-interview-questions" class="list-group-item list-group-item-action">1. 100+ PM Interview Questions (Exponent)</a>
+                <a href="https://www.lewis-lin.com/blog/2018/5/11/circles-method-product-design-framework" class="list-group-item list-group-item-action">2. The CIRCLES Method (Lewis C. Lin)</a>
+                <a href="https://medium.com/product-school" class="list-group-item list-group-item-action">3. Product School: Strategy & Design Blog</a>
+                <a href="https://www.mindtheproduct.com/blog/" class="list-group-item list-group-item-action">4. Mind the Product: Global Community Insights</a>
+                <a href="https://productfolio.com/circles-method/" class="list-group-item list-group-item-action">5. ProductFolio: Case Study Frameworks</a>
+                <a href="https://www.mckinsey.com/industries/financial-services/our-insights" class="list-group-item list-group-item-action">6. McKinsey: The Future of Banking 2026</a>
+                <a href="https://www2.deloitte.com/us/en/insights/industry/financial-services.html" class="list-group-item list-group-item-action">7. Deloitte Insights: BFSI Trends</a>
+                <a href="https://www.strategy-business.com/article/What-is-Product-Strategy" class="list-group-item list-group-item-action">8. PwC: Defining Your Product Strategy</a>
+                <a href="https://hbr.org/topic/product-management" class="list-group-item list-group-item-action">9. HBR: Best of PM Strategy</a>
+                <a href="https://www.gartner.com/en/industries/banking-and-financial-services" class="list-group-item list-group-item-action">10. Gartner: Banking Tech Trends</a>
+                <a href="https://www.linkedin.com/newsletters/product-management-today-6632488814589251584/" class="list-group-item list-group-item-action">11. LinkedIn: PM Today Newsletter</a>
+                <a href="https://newsletter.bringthedonuts.com/" class="list-group-item list-group-item-action">12. Bring the Donuts (Ken Norton)</a>
+                <a href="https://www.lennysnewsletter.com/" class="list-group-item list-group-item-action">13. Lenny’s Newsletter: Product & Growth</a>
+                <a href="https://www.departmentofproduct.com/" class="list-group-item list-group-item-action">14. Department of Product: Tech Deep Dives</a>
+                <a href="https://www.svpg.com/articles/" class="list-group-item list-group-item-action">15. SVPG: Marty Cagan’s PM Philosophy</a>
             </div>
         </div>
-
     </div>
 </div>
 
