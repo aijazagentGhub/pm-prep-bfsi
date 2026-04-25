@@ -3,67 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM Interview Prep - BFSI</title>
+    <title>PM Interview Prep - BFSI Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; padding: 50px 0; }
-        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-tabs .nav-link { color: #495057; font-weight: 500; }
-        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; }
+        body { background-color: #f4f7f6; padding: 40px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .nav-tabs .nav-link { color: #6c757d; font-weight: 600; border: none; padding: 12px 20px; }
+        .nav-tabs .nav-link.active { color: #0d6efd; background: transparent; border-bottom: 3px solid #0d6efd; }
+        .btn-visit { background-color: #0d6efd; color: white; border-radius: 20px; padding: 5px 15px; font-size: 0.85rem; text-decoration: none; transition: 0.3s; }
+        .btn-visit:hover { background-color: #0056b3; color: white; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 class="mb-4 text-primary">Product Management Job Prep (BFSI Focus)</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-dark">BFSI Product Management Dashboard</h2>
+        <span class="badge bg-primary">Prep Year: 2026</span>
+    </div>
     
-    <ul class="nav nav-tabs" id="prepTabs" role="tablist">
+    <ul class="nav nav-tabs" id="pmPrepTabs" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles" type="button" role="tab">PM Articles</button>
+            <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles" type="button" role="tab">Essential Articles</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="bfsi-tab" data-bs-toggle="tab" data-bs-target="#bfsi" type="button" role="tab">BFSI Concepts</button>
+            <button class="nav-link" id="cases-tab" data-bs-toggle="tab" data-bs-target="#cases" type="button" role="tab">BFSI Case Studies</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="concepts-tab" data-bs-toggle="tab" data-bs-target="#concepts" type="button" role="tab">Domain Knowledge</button>
         </li>
     </ul>
 
-    <div class="tab-content pt-4" id="prepTabsContent">
+    <div class="tab-content pt-4" id="pmPrepTabsContent">
         
         <div class="tab-pane fade show active" id="articles" role="tabpanel">
-            <table class="table table-hover border">
+            <table class="table table-hover align-middle">
                 <thead class="table-light">
                     <tr>
-                        <th>Meaningful Name</th>
-                        <th>Brief Detail</th>
-                        <th>Resource URL</th>
+                        <th style="width: 25%">Name</th>
+                        <th style="width: 55%">Brief Detail</th>
+                        <th style="width: 20%">Resource</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>The PM Interview Study Plan</strong></td>
-                        <td>Comprehensive guide on timelines and frameworks for 2026.</td>
-                        <td><a href="https://www.tryexponent.com/blog/the-ultimate-pm-interview-study-plan" target="_blank" class="btn btn-sm btn-outline-primary">Open Link</a></td>
+                        <td><strong>The PM Study Plan</strong></td>
+                        <td>A structured timeline for mastering PM frameworks.</td>
+                        <td><a href="https://www.tryexponent.com/blog/the-ultimate-pm-interview-study-plan" target="_blank" class="btn-visit">Open Tab</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Fintech PM Interview Q&A</strong></td>
-                        <td>Specific questions on AML/KYC and payment platforms.</td>
-                        <td><a href="https://www.tealhq.com/career-paths/fintech-product-manager-interview-questions" target="_blank" class="btn btn-sm btn-outline-primary">Open Link</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Risk & Growth Balance</strong></td>
-                        <td>Managing products in a highly regulated environment.</td>
-                        <td><a href="https://ibraheemagbaje.medium.com/resource-bank-for-product-managers-at-every-career-stage-b75b97666119" target="_blank" class="btn btn-sm btn-outline-primary">Open Link</a></td>
+                        <td><strong>Fintech PM Q&A</strong></td>
+                        <td>Specific focus on AML, KYC, and regulatory hurdles.</td>
+                        <td><a href="https://www.tealhq.com/career-paths/fintech-product-manager-interview-questions" target="_blank" class="btn-visit">Open Tab</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <div class="tab-pane fade" id="bfsi" role="tabpanel">
-            <h4>BFSI Core Competencies</h4>
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Lending:</strong> Underwriting workflows and credit scoring.</li>
-                <li class="list-group-item"><strong>Payments:</strong> UPI, Cross-border transfers, and ISO 20022.</li>
-                <li class="list-group-item"><strong>Insurance:</strong> Claims processing and Policy Administration Systems.</li>
-            </ul>
+        <div class="tab-pane fade" id="cases" role="tabpanel">
+            <div class="alert alert-info">Study these to understand how top Fintechs solve <strong>trust, security, and scaling</strong>.</div>
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 25%">Case Study / Firm</th>
+                        <th style="width: 55%">Key Learning Point</th>
+                        <th style="width: 20%">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Stripe: Checkout Friction</strong></td>
+                        <td>How Stripe simplified online payments through API-first design.</td>
+                        <td><a href="https://digitaldefynd.com/IQ/fintech-case-studies/" target="_blank" class="btn-visit">Read Case</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Square: SME Inclusion</strong></td>
+                        <td>Democratizing payment processing for small businesses.</td>
+                        <td><a href="https://digitaldefynd.com/IQ/fintech-case-studies/" target="_blank" class="btn-visit">Read Case</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Klarna: BNPL Model</strong></td>
+                        <td>Transforming e-commerce through "Buy Now, Pay Later" trust models.</td>
+                        <td><a href="https://digitaldefynd.com/IQ/fintech-case-studies/" target="_blank" class="btn-visit">Read Case</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infosys: Digital Banking</strong></td>
+                        <td>Real-world transformation of legacy banking to cloud-native.</td>
+                        <td><a href="https://www.infosys.com/industries/financial-services/case-studies.html" target="_blank" class="btn-visit">Read Case</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="concepts" role="tabpanel">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Banking (B)</h5>
+                    <p class="text-muted">Focus on: Core Banking Systems, Neobanking, Lending lifecycles.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Financial Services (FS)</h5>
+                    <p class="text-muted">Focus on: WealthTech, Asset Management, Payment Gateways.</p>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <h5>Insurance (I)</h5>
+                    <p class="text-muted">Focus on: InsurTech, Claims processing, Underwriting AI.</p>
+                </div>
+            </div>
         </div>
 
     </div>
