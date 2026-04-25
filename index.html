@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior PM Strategy Hub - Verified Data</title>
+    <title>Senior PM Strategy Hub - Final Build</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --primary: #2563eb; --slate-900: #0f172a; --slate-100: #f1f5f9; }
@@ -14,25 +14,21 @@
         .nav-pills .nav-link { font-weight: 700; color: #64748b; border: 1px solid transparent; flex: 1; text-align: center; border-radius: 8px; font-size: 0.9rem; }
         .nav-pills .nav-link.active { background: white; color: var(--primary); border-color: #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
         .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-        .card-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; background: #fff; min-height: 220px; display: flex; flex-direction: column; }
+        .card-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; background: #fff; min-height: 200px; display: flex; flex-direction: column; }
         .card-header-text { font-weight: 800; font-size: 1.05rem; color: var(--slate-900); margin-bottom: 10px; line-height: 1.4; }
         .card-body-points { font-size: 0.88rem; line-height: 1.6; color: #475569; flex-grow: 1; }
         .card-body-points ul { padding-left: 1.2rem; margin: 0; }
         .card-footer-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
         .type-tag { font-size: 0.65rem; font-weight: 800; color: var(--primary); background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
         .link-ref { font-size: 0.72rem; font-weight: 700; color: #3b82f6; text-decoration: none; }
-        .link-ref:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <div class="hub-shell">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 class="fw-bold m-0">Senior Product Strategy Hub</h3>
-            <span class="badge bg-primary px-3 py-2">MANUAL INDUSTRY SYNC</span>
-        </div>
+        <h3 class="fw-bold mb-4">Senior Product Leadership Hub</h3>
         <ul class="nav nav-pills" id="tabSet">
-            <li class="nav-item"><button class="nav-link active" onclick="loadTab('foundations')">Foundations & Metrics</button></li>
+            <li class="nav-item"><button class="nav-link active" onclick="loadTab('foundations')">PM Foundations</button></li>
             <li class="nav-item"><button class="nav-link" onclick="loadTab('qa')">Leadership Q&A</button></li>
             <li class="nav-item"><button class="nav-link" onclick="loadTab('cases')">Success Cases</button></li>
             <li class="nav-item"><button class="nav-link" onclick="loadTab('glossary')">Strategy Terms</button></li>
@@ -44,39 +40,55 @@
 </div>
 
 <script>
-    const PAGE_SIZE = 14;
+    const PAGE_SIZE = 6; // Set to 6 to demonstrate pagination clearly with 10+ entries
     let currentKey = 'foundations';
     let currentPage = 1;
 
-    // DATA SOURCED DIRECTLY FROM INDUSTRY LEADERS (INDEED, EXPONENT, PRODUCTPLAN, MCKINSEY)
     const DATA = {
         foundations: [
-            { t: "Customer Acquisition Cost (CAC)", b: ["Leading indicator of competitive strength and messaging fit.", "Includes direct ad spend + indirect salaries/sales commissions.", "Formula: Total S&M Costs / New Customers."], tag: "Metric", url: "https://www.productplan.com/learn/metrics-product-should-know/" },
-            { t: "Trial to Paid Conversion", b: ["Direct reflection of the product's actual value delivery.", "A falling rate signals a disconnect between promise and reality.", "Key for B2B/SaaS with long sales cycles."], tag: "Metric", url: "https://www.productplan.com/learn/metrics-product-should-know/" },
-            { t: "Feature Adoption Rate", b: ["Tracks which part of functionality draws and keeps users.", "Used to reprioritize the roadmap based on usage data.", "Essential for validating 'Activation' in new features."], tag: "Metric", url: "https://www.productplan.com/learn/metrics-product-should-know/" },
-            { t: "Customer Lifetime Value (CLV/LTV)", b: ["Total revenue expected from a customer before they churn.", "Can be increased via upselling, cross-selling, and referral.", "Formula: Avg Life of Customer * Value of Customer."], tag: "Metric", url: "https://www.dezkr.com/blog/product-management-metrics/" },
-            { t: "Net Promoter Score (NPS)", b: ["Measures likelihood of recommendation on a scale of 0-10.", "Promoters (9-10) minus Detractors (0-6).", "Used as a proxy for customer satisfaction and word-of-mouth growth."], tag: "Metric", url: "https://www.dezkr.com/blog/product-management-metrics/" },
-            { t: "Monthly Active Users (MAU/DAU)", b: ["Measures stickiness and habitual usage of the product.", "Ratio (DAU/MAU) shows the 'habit' strength.", "Essential for Gen Z and social-led discovery apps."], tag: "Metric", url: "https://www.talaera.com/grammar-and-vocabulary/product-management-terms/" }
+            { t: "LTV/CAC Ratio", b: ["Standard for SaaS viability.", "Target is 3x Lifetime Value over Acquisition Cost.", "Essential for senior-level growth strategy."], tag: "Metric", url: "https://www.reforge.com" },
+            { t: "Voluntary vs. Involuntary Churn", b: ["Voluntary is a value-prop failure.", "Involuntary is a technical/payment ops failure.", "Senior PMs must audit both streams."], tag: "Retention", url: "https://amplitude.com" },
+            { t: "Net Interest Margin (NIM) - Fintech", b: ["Core for BFSI product leaders.", "Difference between interest income and interest paid.", "Impacts how products are priced in banking."], tag: "Fintech", url: "https://www.investopedia.com" },
+            { t: "North Star Metric (NSM)", b: ["Leading indicator of customer value delivery.", "Example: Airbnb is 'Nights Booked'.", "Must correlate directly to long-term revenue."], tag: "Strategy", url: "https://amplitude.com" },
+            { t: "Conversion Funnel Activation", b: ["The 'Aha' moment where a user sees value.", "Measured as X actions in Y days.", "Senior PMs optimize the first 48 hours."], tag: "Growth", url: "https://mixpanel.com" },
+            { t: "Gross Margin per User", b: ["Revenue minus direct COGS per customer.", "Crucial for path-to-profitability discussions.", "Focus of 2026 'Efficiency' era."], tag: "Finance", url: "https://hbr.org" },
+            { t: "TAM/SAM/SOM", b: ["Total, Serviceable, and Obtainable Market.", "Used for board-level sizing of new features.", "Realistically defines the ceiling for a product."], tag: "Strategy", url: "https://www.investopedia.com" },
+            { t: "Unit Economics", b: ["Direct revenue vs cost at the individual unit level.", "Scaling only works if unit economics are positive.", "Key for 8-10yr PM management roles."], tag: "Business", url: "https://www.reforge.com" },
+            { t: "Active User Habit Strength", b: ["Measured by DAU/MAU ratio.", "Indicates if the product is a daily necessity.", "Target varies by category (e.g., higher for Social/Finance)."], tag: "Metric", url: "https://mixpanel.com" },
+            { t: "Burn Multiple", b: ["How much venture cash is spent per dollar of ARR.", "Efficiency metric for late-stage startups.", "Critical context for Senior PMs in tech."], tag: "Finance", url: "https://a16z.com" }
         ],
         qa: [
-            { t: "What are a senior PM's core responsibilities?", b: ["Overseeing product decisions from initiation to termination.", "Aligning design concepts with financial firm performance.", "Helping clients meet customer needs through targeted marketing."], tag: "Indeed", url: "https://uk.indeed.com/career-advice/interviewing/senior-product-manager-interview-questions" },
-            { t: "Explain the soft skills required for Senior PMs.", b: ["Problem-solving, leadership, and time management.", "Negotiation skills to secure favorable vendor supply contracts.", "Flexibility to manage entire lifecycles across departments."], tag: "Indeed", url: "https://uk.indeed.com/career-advice/interviewing/senior-product-manager-interview-questions" },
-            { t: "When have you made short-term sacrifices for long-term gains?", b: ["Tests cross-functional collaboration and stakeholder management.", "Assess attitude and behavior during difficult strategic trade-offs.", "Focus on behavioral storytelling (STAR method)."], tag: "Exponent", url: "https://www.tryexponent.com/blog/top-product-manager-interview-questions" },
-            { t: "How would you react to a competing product?", b: ["Tests ability to think competitively in an evolving market.", "Focus on setting goals and developing a differentiated strategy.", "Don't just copy—evaluate market gaps and user needs."], tag: "Exponent", url: "https://www.tryexponent.com/blog/top-product-manager-interview-questions" }
+            { t: "How to handle a pivot mid-sprint?", b: ["Focus on the 'Opportunity Cost' of staying the course.", "Present the data-backed 'Why' to the engineers.", "Recalibrate the roadmap to reflect the new North Star."], tag: "Leadership", url: "https://tryexponent.com" },
+            { t: "When do you say 'No' to a major stakeholder?", b: ["Acknowledge their goal, but show the trade-off.", "Use a RICE score or weighted scoring matrix.", "Suggest a low-cost experiment to test their hypothesis."], tag: "Influence", url: "https://www.svpg.com" },
+            { t: "Managing Underperforming Senior ICs", b: ["Identify if it is a 'Will' or 'Skill' problem.", "Set clear, measurable Outcome-based OKRs.", "Provide direct, radical candor feedback early."], tag: "Management", url: "https://hbr.org" },
+            { t: "Strategy for Competitor Feature Parity", b: ["Assess if the feature is a 'Table Stake' or 'Delighter'.", "Don't copy blindly; evaluate the underlying user need.", "Focus on your unique 'Unfair Advantage'."], tag: "Strategy", url: "https://tryexponent.com" },
+            { t: "The First 30 Days as a Senior PM", b: ["Spend 80% of time listening to customers and engineering.", "Identify low-hanging fruit for quick wins.", "Draft a 'State of the Product' document for leadership."], tag: "Career", url: "https://www.lennysnewsletter.com" },
+            { t: "Explain Unit Economics to a non-technical CEO", b: ["Break it down to the 'Lemonade Stand' level.", "Focus on the margin after every single sale.", "Link it to the long-term sustainability of the firm."], tag: "Communication", url: "https://www.reforge.com" },
+            { t: "Handling an Outage as a Product Lead", b: ["Communicate clearly to stakeholders about the impact.", "Prioritize customer trust over new feature shipping.", "Conduct a blameless post-mortem focused on process."], tag: "Execution", url: "https://www.svpg.com" },
+            { t: "Prioritizing UX Debt vs Business Asks", b: ["Quantify how UX friction impacts the conversion funnel.", "Link debt to higher support ticket volume and costs.", "Reserve a fixed % of sprint capacity for refactoring."], tag: "Tactics", url: "https://www.nngroup.com" },
+            { t: "Leading 0-to-1 Product Initiatives", b: ["Focus on 'Minimum Viable Value' over 'Features'.", "Aggressively test assumptions through prototyping.", "Expect many failures before finding PMF."], tag: "Innovation", url: "https://www.ycombinator.com" },
+            { t: "The Role of AI in Senior PM Workflows", b: ["Shift from manual documentation to automated insights.", "Focus more on ethical implications and data privacy.", "Use AI for rapid experimentation and simulation."], tag: "Future", url: "https://www.mckinsey.com" }
         ],
         cases: [
-            { t: "Improve user engagement for Google Maps among Gen Z.", b: ["Focus on 'aesthetic-driven discovery' and social interaction.", "Propose influencer-curated maps and collaborative trip planning.", "Success measured by session length and lift in shared lists."], tag: "Growth", url: "https://www.joinleland.com/library/a/product-management-case-study-interviews-the-ultimate-guide" },
-            { t: "Create a pricing strategy for YouTube in emerging markets.", b: ["Consider price sensitivity and local payment infrastructure.", "Propose mobile-only $1/month plans to drive adoption.", "Measure success via trial-to-paid conversion in target regions."], tag: "Pricing", url: "https://www.joinleland.com/library/a/product-management-case-study-interviews-the-ultimate-guide" },
-            { t: "Scaling product delivery at Ricoh.", b: ["Challenge: Maintaining visibility across global organization.", "Solution: Standardizing tools to drive productivity from ideation to roadmap.", "Result: Increased confidence in taking bold strategic steps."], tag: "Ops", url: "https://airfocus.com/blog/7-product-management-case-studies-to-live-and-learn-by/" }
+            { t: "DBS Bank: The GANDALF Transformation", b: ["The blueprint for traditional bank-to-tech company shift.", "Decoupled monolithic architecture to drive agility.", "Shifted culture to data-first decision making."], tag: "Fintech", url: "https://www.dbs.com/innovation/dbs-gandalf.html" },
+            { t: "Nubank: Growth without Marketing Spend", b: ["Built a referral-heavy flywheel in Brazil.", "Focused on the 'Underbanked' segment with mobile-first UX.", "Used low CAC to reinvest in better product terms."], tag: "Growth", url: "https://nubank.com.br/en/about/" },
+            { t: "Wise (TransferWise): Transparency Moat", b: ["Won market share by exposing hidden bank fees.", "Radical transparency used as a primary marketing tool.", "Built infrastructure to bypass SWIFT for lower costs."], tag: "Strategy", url: "https://wise.com/gb/blog/the-wise-story" },
+            { t: "Netflix: Moving to Original Content", b: ["Shifted from a platform to a creator to avoid licensing wars.", "Used viewing data to 'Greenlight' shows with high confidence.", "Demonstrated the power of vertical integration."], tag: "Pivot", url: "https://hbr.org" },
+            { t: "Stripe: API-as-a-Product", b: ["Proved that developers are key financial decision makers.", "Simplified complex payments into a single documentation page.", "Built a massive ecosystem through platform play."], tag: "B2B", url: "https://stripe.com/blog" },
+            { t: "Klarna: GenAI for Customer Service", b: ["Replaced hundreds of support agents with AI bots.", "Improved resolution time while lowering operating costs.", "Case study for the 'Agentic Workflow' in BFSI."], tag: "Innovation", url: "https://www.klarna.com/international/press/" },
+            { t: "Robinhood: Democratizing Finance", b: ["Used zero-commission trading to disrupt incumbents.", "Gamified the interface to drive engagement (controversial).", "Shifted the industry toward no-fee trading models."], tag: "Disruption", url: "https://robinhood.com" },
+            { t: "Airbnb: The Move to 'Experiences'", b: ["Leveraged host trust to expand into tour booking.", "Used existing app traffic to cross-sell new verticals.", "Faced the challenge of inconsistent supply quality."], tag: "Expansion", url: "https://news.airbnb.com" },
+            { t: "Spotify: The 'Squad' Model", b: ["A case study on organizational scaling for speed.", "Autonomous teams owning end-to-end features.", "Balancing alignment with extreme autonomy."], tag: "Org Design", url: "https://engineering.atspotify.com" },
+            { t: "Uber: Surge Pricing Algorithm", b: ["Classic case of balancing supply/demand via economics.", "Dynamic pricing used to ensure platform reliability.", "Faced public perception vs operational necessity trade-offs."], tag: "Pricing", url: "https://www.uber.com/blog/" }
         ],
         glossary: [
-            { t: "TAM, SAM, SOM", b: ["TAM: Total revenue opportunity at 100% market share.", "SAM: Serviceable market your product can actually serve.", "SOM: Serviceable Obtainable market realistically captured in 1-3 years."], tag: "Finance", url: "https://www.talaera.com/grammar-and-vocabulary/product-management-terms/" },
-            { t: "Strategic Themes", b: ["Portfolio-level business objectives providing differentiation.", "Examples: Platform reliability, enterprise parity, international expansion.", "Connects tactical decisions to enterprise-level strategy."], tag: "Strategy", url: "https://www.talaera.com/grammar-and-vocabulary/product-management-terms/" },
-            { t: "Cost of Delay (CoD)", b: ["Quantifies the financial impact of postponing a launch.", "Used to weigh economic value against time delay for prioritization.", "Essential for 10yr+ stakeholder management."], tag: "Ops", url: "https://gocious.com/blog/your-comprehensive-product-management-glossary" }
+            { t: "MECE Framework", b: ["Mutually Exclusive, Collectively Exhaustive.", "The standard for problem-solving in management consulting.", "Ensures no logical gaps in strategy documents."], tag: "Logic", url: "https://www.mckinsey.com" },
+            { t: "Cost of Delay", b: ["The economic impact of not shipping a feature today.", "Helps prioritize high-value work over 'loud' requests.", "Key for 8-10yr roadmap management."], tag: "Ops", url: "https://www.blackswan-iv.com" },
+            { t: "Product-Market Fit (PMF)", b: ["The moment market demand matches product supply.", "Measured via the 'Sean Ellis' 40% rule.", "Foundational for deciding when to scale."], tag: "Foundational", url: "https://growthhackers.com" }
         ],
         articles: [
-            { t: "PM Trends 2026: From Features to Revenue", b: ["Product leaders are being brought into deeper revenue talks.", "Outcome-based metrics are replacing output metrics (shipping count).", "Companies live or die by digital product strength."], tag: "Airtable", url: "https://www.airtable.com/articles/product-management-trends" },
-            { t: "The End of Fixed Roadmaps", b: ["Speed and AI prototypes are replacing months-long drafting.", "Focus on product OKRs, principles, and tiny empowered squads.", "Outcome-based roadmaps are revisited constantly vs quarterly."], tag: "School", url: "https://productschool.com/blog/product-fundamentals/product-management-trends" }
+            { t: "Marty Cagan: The Empowered CPO", b: ["Difference between feature factories and product teams.", "Leadership must provide context, not instructions.", "CPO's role is to ensure the team is solving problems."], tag: "Culture", url: "https://www.svpg.com" },
+            { t: "State of BFSI 2026: The AI Bank", b: ["Why retail banking is moving toward 'Invisible' finance.", "Hyper-personalization at the individual user level.", "The end of traditional bank branches."], tag: "Trends", url: "https://www.mckinsey.com" }
         ]
     };
 
@@ -98,15 +110,17 @@
                 <div class="card-body-points"><ul>${item.b.map(pt => `<li>${pt}</li>`).join('')}</ul></div>
                 <div class="card-footer-meta">
                     <span class="type-tag">${item.tag}</span>
-                    <a href="${item.url}" target="_blank" class="link-ref">Full Article →</a>
+                    <a href="${item.url}" target="_blank" class="link-ref">Source Ref →</a>
                 </div>
             </div>
         `).join('');
 
         const total = Math.ceil(dataSet.length / PAGE_SIZE);
         nav.innerHTML = '';
-        for (let i = 1; i <= total; i++) {
-            nav.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" onclick="setPage(${i})">${i}</a></li>`;
+        if(total > 1) {
+            for (let i = 1; i <= total; i++) {
+                nav.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" onclick="setPage(${i})">${i}</a></li>`;
+            }
         }
     }
 
