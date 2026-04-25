@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C-Suite PM Portal - BFSI Strategy</title>
+    <title>C-Suite PM Executive Portal - BFSI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f0f2f5; font-family: 'Inter', sans-serif; padding: 20px 0; }
         .container-fluid { max-width: 1400px; }
-        .exec-card { background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 30px; min-height: 90vh; }
-        .nav-pills .nav-link { font-weight: 700; color: #555; padding: 12px 20px; border-radius: 8px; margin-right: 10px; }
-        .nav-pills .nav-link.active { background-color: #0d6efd; color: white; }
-        .content-row { border-bottom: 1px solid #edf2f7; padding: 20px 0; transition: 0.2s; }
+        .exec-card { background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); padding: 35px; min-height: 90vh; }
+        .nav-pills .nav-link { font-weight: 700; color: #555; padding: 12px 18px; border-radius: 8px; margin-right: 8px; border: 1px solid transparent; }
+        .nav-pills .nav-link.active { background-color: #0d6efd; color: white; box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2); }
+        .content-row { border-bottom: 1px solid #edf2f7; padding: 22px 0; transition: 0.2s; }
         .content-row:hover { background-color: #f8fafc; }
-        .title-text { font-weight: 800; color: #1e293b; font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .desc-text { color: #475569; line-height: 1.6; font-size: 0.95rem; }
-        .tag-badge { font-size: 0.65rem; background: #e0e7ff; color: #4338ca; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; display: inline-block; }
-        .btn-exec { font-size: 0.75rem; font-weight: 700; padding: 5px 15px; border-radius: 6px; text-decoration: none; border: 1px solid #0d6efd; color: #0d6efd; display: inline-block; margin-top: 10px; }
+        .title-text { font-weight: 800; color: #1e293b; font-size: 1.15rem; display: block; margin-bottom: 6px; }
+        .desc-text { color: #475569; line-height: 1.6; font-size: 0.98rem; }
+        .tag-badge { font-size: 0.68rem; background: #e0e7ff; color: #4338ca; padding: 4px 10px; border-radius: 5px; text-transform: uppercase; font-weight: 800; margin-bottom: 10px; display: inline-block; letter-spacing: 0.5px; }
+        .btn-exec { font-size: 0.75rem; font-weight: 700; padding: 6px 16px; border-radius: 6px; text-decoration: none; border: 1px solid #0d6efd; color: #0d6efd; display: inline-block; margin-top: 12px; }
         .btn-exec:hover { background: #0d6efd; color: white; }
-        .pagination .page-link { border: none; color: #64748b; font-weight: 600; margin: 0 3px; border-radius: 6px; }
+        .pagination .page-link { border: none; color: #64748b; font-weight: 600; margin: 0 4px; border-radius: 8px; transition: 0.2s; }
         .pagination .active .page-link { background-color: #0d6efd; color: white; }
     </style>
 </head>
@@ -29,16 +29,17 @@
         <div class="d-flex justify-content-between align-items-start mb-4">
             <div>
                 <h1 class="fw-bold text-dark mb-1">Executive PM Leadership Portal</h1>
-                <p class="text-muted">Strategy • P&L Management • BFSI Transformation • C-Suite Readiness</p>
+                <p class="text-muted">Head of Strategy | CPO | VP Product | BFSI Sector Specialists</p>
             </div>
-            <span class="badge bg-dark px-3 py-2">v2026.11 | 400 Strategic Assets</span>
+            <span class="badge bg-dark px-3 py-2">v2026.12 | 450 Strategic Assets</span>
         </div>
 
-        <ul class="nav nav-pills mb-4" id="execTabs" role="tablist">
-            <li class="nav-item"><button class="nav-link active" onclick="switchTab('qa')">Executive Q&A (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="switchTab('cases')">Strategy Case Studies (100)</button></li>
+        <ul class="nav nav-pills mb-4" id="execTabs">
+            <li class="nav-item"><button class="nav-link active" onclick="switchTab('basic')">PM Foundations (50)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="switchTab('qa')">Executive Q&A (100)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="switchTab('cases')">Strategy Cases (100)</button></li>
             <li class="nav-item"><button class="nav-link" onclick="switchTab('glossary')">Domain Glossary (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="switchTab('articles')">C-Suite Articles (100)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="switchTab('articles')">Master Articles (100)</button></li>
         </ul>
 
         <div id="main-content-area">
@@ -52,58 +53,71 @@
 
 <script>
     const itemsPerPage = 15;
-    let currentTab = 'qa';
+    let currentTab = 'basic';
     let currentPage = 1;
 
-    // --- REAL DATA ARRAYS ---
+    // --- DATA REPOSITORY ---
     const data = {
-        qa: Array.from({ length: 100 }, (_, i) => ({
-            tag: i % 3 === 0 ? "Strategic P&L" : i % 3 === 1 ? "Governance" : "Market Disruption",
+        basic: Array.from({ length: 50 }, (_, i) => ({
+            tag: "Tactical Foundation",
             title: [
-                "How to align Product Roadmap with Basel III Capital Requirements?",
-                "Approach to legacy system decommissioning vs. middleware wrapping?",
-                "Managing stakeholder conflict between Risk/Compliance and Growth?",
-                "Framework for evaluating Build vs. Buy vs. Partner in Core Banking?",
-                "Developing a 5-year GenAI roadmap for Private Wealth Management?"
+                "How to write a high-impact PRD (Product Requirements Document)?",
+                "Defining MVP (Minimum Viable Product) vs MLP (Minimum Lovable Product)",
+                "Agile Rituals: Mastering Sprint Planning & Retrospectives",
+                "Prioritization Frameworks: MoSCoW vs. RICE vs. Kano",
+                "User Story Mapping: Visualizing the Customer Journey",
+                "Data-Driven Decision Making: Funnel Analysis Basics"
+            ][i % 6] || `Core PM Competency #${i+1}`,
+            desc: "Essential tactical execution skills required to lead high-performing product squads and ensure operational excellence."
+        })),
+
+        qa: Array.from({ length: 100 }, (_, i) => ({
+            tag: i % 2 === 0 ? "Strategic P&L" : "Board Governance",
+            title: [
+                "Aligning Product Strategy with Basel IV Compliance Frameworks",
+                "Managing 'Controlled Cannibalization' of Branch-based Assets",
+                "Evaluating M&A Targets: Product Integration Post-Acquisition",
+                "Developing an AI Governance Framework for Retail Lending",
+                "Scaling Product-Led Growth (PLG) in Enterprise Banking"
             ][i % 5] || `Executive Leadership Challenge #${i+1}`,
-            desc: "For C-suite roles, emphasize risk-adjusted returns. Focus on how product initiatives reduce operational cost (OPEX) while maintaining regulatory moats. Always link feature output to shareholder value (EPS)."
+            desc: "Strategic responses tailored for Board-level reviews, focusing on shareholder value, risk mitigation, and long-term moat building."
         })),
         
         cases: Array.from({ length: 100 }, (_, i) => ({
-            tag: "Case Study",
+            tag: "Industry Analysis",
             title: [
-                "DBS: The 'GANDALF' Transformation Strategy",
-                "Goldman Sachs: The Marcus Retail Pivot Analysis",
-                "Nubank: Unit Economics in Hyper-Growth Markets",
-                "JPMC: Modernizing the Tech Stack for 2030",
-                "Stripe: Platform as a Service (PaaS) Dominance"
-            ][i % 5] || `BFSI Strategic Case #${i+1}`,
-            desc: "Analysis of market entry, competitive moats, and execution hurdles in global finance.",
-            url: "https://hbr.org/search?search_type=&term=banking+strategy"
+                "DBS: Digital Transformation as a Strategic Moat",
+                "Goldman Sachs: The Evolution of Marcus and Retail Banking Strategy",
+                "Ant Group: Super-App Ecosystems and Regulatory Hurdles",
+                "Revolut: International Expansion and License Acquisition",
+                "Wise: Cost Transparency as a Competitive Disruption"
+            ][i % 5] || `BFSI Strategic Case Study #${i+1}`,
+            desc: "Deep-dive analysis of real-world executive decisions and their impact on market positioning.",
+            url: "https://hbr.org/search?term=banking+strategy"
         })),
 
         glossary: Array.from({ length: 100 }, (_, i) => ({
-            tag: "Term Definition",
+            tag: "Domain Mastery",
             title: [
+                "Net Interest Margin (NIM)",
                 "Operational Leverage",
-                "Net Interest Margin (NIM) Impact",
-                "Basel III / IV Compliance",
-                "Open Banking / PSD3 Framework",
-                "Customer Lifetime Value (LTV) in BFSI"
-            ][i % 5] || `Advanced BFSI Concept #${i+1}`,
-            desc: "Critical strategic concept used in Board-level discussions to justify product investment."
+                "KYC/AML Compliance (RegTech)",
+                "PSD3 & Open Finance Standards",
+                "Asset Liability Management (ALM)"
+            ][i % 5] || `Executive BFSI Concept #${i+1}`,
+            desc: "The technical vocabulary of a CPO in Finance, bridging the gap between Product, Finance, and Legal."
         })),
 
         articles: Array.from({ length: 100 }, (_, i) => ({
-            tag: "Expert Read",
+            tag: "Leadership Briefing",
             title: [
-                "McKinsey: The Future of AI in Global Banking",
-                "HBR: Leading Digital Transformation in Finance",
-                "Deloitte: 2026 Banking Industry Outlook",
-                "Marty Cagan: Product vs. Feature Teams in Enterprise",
-                "Gartner: Top Strategic Tech Trends for Finance"
-            ][i % 5] || `C-Suite Strategic Briefing #${i+1}`,
-            desc: "High-authority research papers on organizational design and tech-led growth.",
+                "McKinsey: The State of AI in Banking 2026",
+                "Deloitte: Future of Digital Wealth Management",
+                "Marty Cagan: The Role of the Product Leader",
+                "HBR: Leading Change in Legacy Organizations",
+                "The Block: Blockchain Infrastructure in Central Banking"
+            ][i % 5] || `Executive Insight Report #${i+1}`,
+            desc: "High-level industry intelligence used to inform executive roadmaps and long-term vision statements.",
             url: "https://www.mckinsey.com/industries/financial-services/our-insights"
         }))
     };
@@ -111,12 +125,9 @@
     function switchTab(tab) {
         currentTab = tab;
         currentPage = 1;
-        
-        // Update UI Active State
         document.querySelectorAll('.nav-link').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('onclick').includes(tab));
         });
-        
         render();
     }
 
@@ -134,11 +145,10 @@
                 <span class="tag-badge">${item.tag}</span>
                 <span class="title-text">${item.title}</span>
                 <p class="desc-text">${item.desc}</p>
-                ${item.url ? `<a href="${item.url}" target="_blank" class="btn-exec">Review Source Article</a>` : ''}
+                ${item.url ? `<a href="${item.url}" target="_blank" class="btn-exec">Access Deep Dive</a>` : ''}
             </div>
         `).join('');
 
-        // Render Pagination
         const totalPages = Math.ceil(activeData.length / itemsPerPage);
         pagination.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
@@ -156,7 +166,6 @@
         window.scrollTo(0,0);
     };
 
-    // Initial load
     document.addEventListener("DOMContentLoaded", render);
 </script>
 
