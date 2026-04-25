@@ -3,123 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM Interview Prep - BFSI Portal</title>
+    <title>Master PM Interview Portal - BFSI Focus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f4f7f6; padding: 40px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .nav-tabs .nav-link { color: #6c757d; font-weight: 600; border: none; padding: 12px 20px; }
-        .nav-tabs .nav-link.active { color: #0d6efd; background: transparent; border-bottom: 3px solid #0d6efd; }
-        .btn-visit { background-color: #0d6efd; color: white; border-radius: 20px; padding: 5px 15px; font-size: 0.85rem; text-decoration: none; transition: 0.3s; display: inline-block; }
+        body { background-color: #f0f2f5; padding: 40px 0; font-family: 'Inter', -apple-system, sans-serif; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        .nav-tabs { border-bottom: 2px solid #dee2e6; }
+        .nav-tabs .nav-link { color: #495057; font-weight: 600; padding: 15px 25px; transition: 0.3s; }
+        .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; background: none; }
+        .btn-visit { background-color: #0d6efd; color: white; border-radius: 6px; padding: 6px 12px; font-size: 0.8rem; text-decoration: none; font-weight: 500; }
         .btn-visit:hover { background-color: #0056b3; color: white; }
-        .badge-domain { font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; display: block; width: fit-content; }
+        .category-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 5px; display: inline-block; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="text-dark">BFSI Product Management Hub</h2>
-        <span class="badge bg-dark">Manual Refresh: 2026</span>
+    <div class="mb-4">
+        <h2 class="fw-bold text-dark">Product Management Interview Preparation</h2>
+        <p class="text-muted">Curated resources for Strategic, Product Sense, and BFSI Domain interviews.</p>
     </div>
     
-    <ul class="nav nav-tabs" id="pmPrepTabs" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#cases" type="button">BFSI Case Studies</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#glossary" type="button">PM Glossary</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">General PM Articles</button></li>
+    <ul class="nav nav-tabs" id="prepTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#glossary" type="button">PM Glossary</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">Interview Articles</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#cases" type="button">BFSI Case Studies</button></li>
     </ul>
 
-    <div class="tab-content pt-4" id="pmPrepTabsContent">
+    <div class="tab-content pt-4" id="prepTabsContent">
         
-        <div class="tab-pane fade show active" id="cases" role="tabpanel">
-            <table class="table table-hover align-middle">
-                <thead class="table-light">
-                    <tr>
-                        <th style="width: 20%">Firm</th>
-                        <th style="width: 60%">The "Product" Story</th>
-                        <th style="width: 20%">Source</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>DBS Bank</strong></td>
-                        <td><span class="badge bg-info text-dark badge-domain">Digital Transformation</span>
-                        How DBS used a "GANDALF" strategy (copying Google/Amazon tech culture) to become the world's best digital bank.</td>
-                        <td><a href="https://hbr.org/2021/03/how-dbs-bank-became-the-worlds-best-bank" target="_blank" class="btn-visit">Read Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Stripe</strong></td>
-                        <td><span class="badge bg-success text-white badge-domain">Payments Architecture</span>
-                        Building a "Global Payments Treasury Network." Study how they used developer experience (DX) as their primary product feature.</td>
-                        <td><a href="https://stripe.com/en-in/newsroom/search?q=case+study" target="_blank" class="btn-visit">Read Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Capital One</strong></td>
-                        <td><span class="badge bg-primary text-white badge-domain">Data & Analytics</span>
-                        Moving 100% to the Cloud. This case explains how a bank uses real-time data to offer personalized credit limits.</td>
-                        <td><a href="https://www.aws.amazon.com/solutions/case-studies/capital-one-cloud-migration/" target="_blank" class="btn-visit">Read Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Lemonade</strong></td>
-                        <td><span class="badge bg-danger text-white badge-domain">InsurTech</span>
-                        Using AI (AI Maya) to process claims in 3 seconds. A perfect example of "Product-led Growth" in the insurance sector.</td>
-                        <td><a href="https://www.lemonade.com/blog/worlds-fastest-claim/" target="_blank" class="btn-visit">Read Case</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ant Group (Alipay)</strong></td>
-                        <td><span class="badge bg-warning text-dark badge-domain">Super-App Strategy</span>
-                        How Alipay integrated social, utility, and financial services into a single ecosystem.</td>
-                        <td><a href="https://hbr.org/2020/09/how-alipay-became-the-worlds-leading-financial-platform" target="_blank" class="btn-visit">Read Case</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="tab-pane fade" id="glossary" role="tabpanel">
+        <div class="tab-pane fade show active" id="glossary" role="tabpanel">
+            <div class="alert alert-primary mb-4">Focus on <strong>Vision</strong> and <strong>Strategy</strong> for leadership-level interviews.</div>
             <table class="table table-hover align-middle">
                 <thead class="table-light">
                     <tr>
                         <th style="width: 25%">Term</th>
-                        <th style="width: 55%">Interview Summary</th>
-                        <th style="width: 20%">Reference</th>
+                        <th style="width: 60%">Interview Definition & Application</th>
+                        <th style="width: 15%">Source</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td><strong>Product Vision</strong></td>
+                        <td>The "North Star" or long-term goal (5-10 years). It answers <em>"What world do we want to create?"</em>. <br><small class="text-muted">Example: LinkedIn's vision is to create economic opportunity for every member of the global workforce.</small></td>
+                        <td><a href="https://www.productboard.com/blog/product-vision-examples/" target="_blank" class="btn-visit">Ref</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product Mission</strong></td>
+                        <td>The actionable "How." It explains what the company is doing <em>now</em> to achieve the Vision.</td>
+                        <td><a href="https://amplitude.com/blog/product-mission-statement" target="_blank" class="btn-visit">Ref</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>North Star Metric (NSM)</strong></td>
+                        <td>The single most important metric that captures the core value delivered to customers. In BFSI, this might be "Total Assets Under Management" or "Successful Transactions."</td>
+                        <td><a href="https://growth.design/case-studies/north-star-metric" target="_blank" class="btn-visit">Ref</a></td>
+                    </tr>
+                    <tr>
                         <td><strong>The Mom Test</strong></td>
-                        <td>A discovery method. Instead of asking "Would you use this?", ask about the user's specific past behaviors to avoid biased answers.</td>
-                        <td><a href="https://blog.uxtweak.com/the-mom-test/" target="_blank" class="btn-visit">Details</a></td>
+                        <td>Validation framework. Rule: Talk about their life, not your idea. If you ask "Would you use this?", you've failed the test.</td>
+                        <td><a href="https://www.momtestbook.com/" target="_blank" class="btn-visit">Ref</a></td>
                     </tr>
                     <tr>
-                        <td><strong>MVP vs. MLP</strong></td>
-                        <td>Minimum Viable Product (functional) vs. Minimum Lovable Product (delightful). Critical in retail banking apps.</td>
-                        <td><a href="https://productschool.com/glossary" target="_blank" class="btn-visit">Details</a></td>
+                        <td><strong>Unit Economics (LTV/CAC)</strong></td>
+                        <td>Crucial for Banking PMs. How much profit does one user generate (LTV) vs. how much did it cost to acquire them (CAC)?</td>
+                        <td><a href="https://vwo.com/blog/ltv-cac-ratio/" target="_blank" class="btn-visit">Ref</a></td>
                     </tr>
                     <tr>
-                        <td><strong>Churn Rate</strong></td>
-                        <td>The percentage of customers who stop using your banking/fintech app over a specific period.</td>
-                        <td><a href="https://mixpanel.com/blog/churn-rate-formula-calculation/" target="_blank" class="btn-visit">Details</a></td>
+                        <td><strong>First Principles Thinking</strong></td>
+                        <td>Breaking a problem down to its basic truths and building up from there. Vital for "Design a new ATM" questions.</td>
+                        <td><a href="https://fs.blog/first-principles/" target="_blank" class="btn-visit">Ref</a></td>
                     </tr>
                     <tr>
-                        <td><strong>KYC/AML</strong></td>
-                        <td>Know Your Customer & Anti-Money Laundering. For PMs, this is about balancing "Legal Compliance" with "User Friction."</td>
-                        <td><a href="https://sumsub.com/blog/kyc-meaning/" target="_blank" class="btn-visit">Details</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>A/B Testing</strong></td>
-                        <td>Comparing two versions of a webpage/feature (e.g., two different "Apply Now" buttons) to see which performs better.</td>
-                        <td><a href="https://vwo.com/ab-testing/" target="_blank" class="btn-visit">Details</a></td>
+                        <td><strong>Opportunity Solution Tree</strong></td>
+                        <td>A visual aid to ensure you don't jump to solutions before understanding the "Desired Outcome" and "Opportunities."</td>
+                        <td><a href="https://www.producttalk.org/2016/08/opportunity-solution-tree/" target="_blank" class="btn-visit">Ref</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="tab-pane fade" id="articles" role="tabpanel">
-            <table class="table table-hover">
-                <thead class="table-light"><tr><th>Name</th><th>Focus</th><th>URL</th></tr></thead>
+            <table class="table table-hover align-middle">
+                <thead class="table-light"><tr><th>Article Title</th><th>Focus Area</th><th>Action</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>The PM Interview plan</strong></td><td>Full Timeline</td><td><a href="https://www.tryexponent.com/blog/the-ultimate-pm-interview-study-plan" target="_blank" class="btn-visit">Link</a></td></tr>
-                    <tr><td><strong>First 90 Days as a PM</strong></td><td>Onboarding</td><td><a href="https://medium.com/product-school/the-first-90-days-as-a-product-manager-3e1a6c52a0a2" target="_blank" class="btn-visit">Link</a></td></tr>
+                    <tr>
+                        <td><strong>The Product Manager's Guide to BFSI</strong></td>
+                        <td><span class="category-tag bg-warning text-dark">Domain</span> Trends in Neobanking & Payments.</td>
+                        <td><a href="https://www.mindtheproduct.com/product-management-in-the-world-of-fintech/" target="_blank" class="btn-visit">Open</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cracking the PM Interview (Frameworks)</strong></td>
+                        <td><span class="category-tag bg-success text-white">Interview</span> CIRCLES and Lewis C. Lin frameworks.</td>
+                        <td><a href="https://www.lewis-lin.com/blog/2018/5/11/circles-method-product-design-framework" target="_blank" class="btn-visit">Open</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>How to Define a Product Strategy</strong></td>
+                        <td><span class="category-tag bg-primary text-white">Strategy</span> Breaking down Vision into Roadmaps.</td>
+                        <td><a href="https://lattice.com/library/how-to-write-a-product-strategy" target="_blank" class="btn-visit">Open</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Behavioral Interview Questions (LinkedIn)</strong></td>
+                        <td><span class="category-tag bg-info text-dark">Soft Skills</span> STAR method for PM stories.</td>
+                        <td><a href="https://www.linkedin.com/pulse/top-10-product-manager-behavioral-interview-questions-aditya-sharma/" target="_blank" class="btn-visit">Open</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="cases" role="tabpanel">
+            <table class="table table-hover align-middle">
+                <thead class="table-light"><tr><th>Case Study</th><th>Learning Outcome</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DBS Bank Transformation</strong></td>
+                        <td>From traditional bank to digital leader.</td>
+                        <td><a href="https://hbr.org/2021/03/how-dbs-bank-became-the-worlds-best-bank" target="_blank" class="btn-visit">Read</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revolut's Growth Loop</strong></td>
+                        <td>How viral features drove Fintech growth.</td>
+                        <td><a href="https://growth.design/case-studies/revolut-onboarding" target="_blank" class="btn-visit">Read</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
