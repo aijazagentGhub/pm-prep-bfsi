@@ -3,39 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PO Executive Strategy Hub</title>
+    <title>PO Strategy Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #2563eb; --slate-900: #0f172a; }
-        body { background-color: #f8fafc; font-family: 'Inter', system-ui, sans-serif; color: #334155; }
-        .container-fluid { max-width: 1400px; padding: 30px; }
-        .vault-card { background: white; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.05); padding: 25px; min-height: 90vh; }
-        .nav-pills { background: #f1f5f9; padding: 5px; border-radius: 10px; margin-bottom: 25px; }
-        .nav-pills .nav-link { font-weight: 600; color: #64748b; border-radius: 8px; flex: 1; }
-        .nav-pills .nav-link.active { background: white; color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .entry-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; background: #fff; min-height: 220px; display: flex; flex-direction: column; }
-        .entry-title { font-weight: 800; font-size: 1.1rem; color: var(--slate-900); margin-bottom: 8px; }
-        .entry-body { font-size: 0.9rem; line-height: 1.5; flex-grow: 1; }
-        .entry-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
+        :root { --primary: #2563eb; --bg: #f8fafc; }
+        body { background-color: var(--bg); font-family: -apple-system, system-ui, sans-serif; padding: 10px; }
+        
+        /* Mobile-First Adjustments */
+        .vault-card { background: white; border-radius: 12px; padding: 15px; min-height: 95vh; }
+        
+        /* Horizontal scroll for tabs on mobile */
+        .nav-pills { 
+            display: flex; 
+            flex-wrap: nowrap; 
+            overflow-x: auto; 
+            background: #f1f5f9; 
+            padding: 5px; 
+            border-radius: 10px; 
+            margin-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .nav-pills .nav-item { flex: 0 0 auto; }
+        .nav-pills .nav-link { white-space: nowrap; font-size: 0.85rem; font-weight: 600; color: #64748b; }
+        .nav-pills .nav-link.active { background: white; color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* Responsive Grid */
+        .content-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* Single column for mobile */
+            gap: 15px; 
+        }
+        @media (min-width: 768px) {
+            .content-grid { grid-template-columns: 1fr 1fr; } /* 2 columns for desktop */
+        }
+
+        .entry-card { 
+            border: 1px solid #e2e8f0; 
+            border-radius: 10px; 
+            padding: 18px; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100%;
+        }
+        .entry-title { font-weight: 800; font-size: 1.05rem; color: #0f172a; margin-bottom: 8px; }
+        .entry-body { font-size: 0.9rem; line-height: 1.5; color: #475569; flex-grow: 1; }
+        .entry-body ul { padding-left: 1.2rem; margin-bottom: 0; }
+        
+        .entry-footer { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-top: 15px; 
+            padding-top: 10px; 
+            border-top: 1px solid #f1f5f9; 
+        }
         .tag { font-size: 0.65rem; font-weight: 700; color: var(--primary); background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
-        .source-link { font-size: 0.75rem; font-weight: 700; color: #2563eb; text-decoration: none; border: 1px solid #dbeafe; padding: 4px 10px; border-radius: 4px; }
-        .source-link:hover { background: #2563eb; color: white; }
+        .source-link { font-size: 0.75rem; font-weight: 700; color: #2563eb; text-decoration: none; border: 1px solid #dbeafe; padding: 4px 10px; border-radius: 6px; }
+
+        .pagination .page-link { border-radius: 5px; margin: 0 2px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="vault-card">
-        <h2 class="fw-bold mb-4">Senior PO Strategy & Knowledge Vault</h2>
-        <ul class="nav nav-pills" id="tabs">
-            <li class="nav-item"><button class="nav-link active" onclick="loadTab('foundations')">Foundations & Terms (40)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('business')">Business Strategy (20)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('qa')">Interview Q&A (20)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('cases')">Case Studies (20)</button></li>
-        </ul>
-        <div id="gridArea" class="content-grid"></div>
-        <nav class="d-flex justify-content-center mt-5"><ul class="pagination shadow-sm" id="pages"></ul></nav>
-    </div>
+
+<div class="vault-card">
+    <h5 class="fw-bold mb-3 text-center">Senior PO Knowledge Vault</h5>
+    
+    <ul class="nav nav-pills" id="tabs">
+        <li class="nav-item"><button class="nav-link active" onclick="loadTab('foundations')">Foundations (40)</button></li>
+        <li class="nav-item"><button class="nav-link" onclick="loadTab('business')">Strategy (20)</button></li>
+        <li class="nav-item"><button class="nav-link" onclick="loadTab('qa')">Q&A (20)</button></li>
+        <li class="nav-item"><button class="nav-link" onclick="loadTab('cases')">Cases (20)</button></li>
+    </ul>
+
+    <div id="gridArea" class="content-grid"></div>
+
+    <nav class="mt-4"><ul class="pagination justify-content-center" id="pages"></ul></nav>
 </div>
 
 <script>
@@ -45,112 +87,112 @@
 
     const DATA = {
         foundations: [
-            { t: "The Mom Test", b: ["Don't ask 'Is this a good idea?'. People lie to be nice.", "Ask about their life/past behavior. Facts over opinions.", "If they haven't tried to solve the pain yet, don't build."], tag: "Discovery", url: "https://www.momtestbook.com/" },
-            { t: "MECE Principle", b: ["Mutually Exclusive, Collectively Exhaustive.", "McKinsey standard for breaking down problems without gaps.", "Ensures strategy covers all possible variables."], tag: "Strategy", url: "https://www.mckinsey.com/alumni/news-and-insights/global-news/alumni-news/the-mece-principle" },
-            { t: "HEART Framework", b: ["Happiness, Engagement, Adoption, Retention, Task Success.", "Google's quantitative UX metrics at scale.", "Focuses on the quality of the user experience."], tag: "Metrics", url: "https://uxdesign.cc/googles-heart-framework-853240e05697" },
-            { t: "CIRCLES Method", b: ["Comprehend, Identify, Report, Cut, List, Evaluate, Summarize.", "Used to answer product design questions systematically.", "Prioritizes user goals over feature lists."], tag: "Design", url: "https://www.productmanagementexercises.com/circles-framework" },
-            { t: "RICE Prioritization", b: ["Reach, Impact, Confidence, Effort.", "Standard Intercom framework to remove gut-feel bias.", "Confidence score is the hardest to defend and most vital."], tag: "Roadmap", url: "https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/" },
-            { t: "TAM/SAM/SOM", b: ["Total, Serviceable, and Obtainable market sizing.", "Required for business case feasibility and funding.", "Standard for board-level strategy presentations."], tag: "Business", url: "https://www.investopedia.com/terms/t/total-addressable-market.asp" },
-            { t: "Opportunity Cost", b: ["The value of the 'next best' thing you didn't do.", "A PO's best tool for saying 'No' to low-value features.", "Focuses on capital and time efficiency."], tag: "Economics", url: "https://hbr.org/2016/11/how-to-overcome-the-opportunity-cost-fallacy" },
-            { t: "Outcome vs Output", b: ["Output: Shipped 5 features. Outcome: Reduced churn 10%.", "Seniors are measured on business impact, not speed.", "Focuses on 'Jobs to be Done' rather than tickets."], tag: "Strategy", url: "https://hbr.org/2012/11/stop-measuring-outcomes-and-start-measuring-impact" },
-            { t: "Unit Economics", b: ["Revenue vs Cost of a single user (LTV - CAC).", "Crucial for path-to-profitability in SaaS models.", "Includes server costs and support overhead."], tag: "Finance", url: "https://hbr.org/2020/04/how-to-calculate-customer-lifetime-value" },
-            { t: "Technical Debt", b: ["Implicit cost of choosing an easy solution now.", "Must be managed like interest to prevent velocity collapse.", "POs should reserve 20% capacity for stability."], tag: "Agile", url: "https://martinfowler.com/bliki/TechnicalDebt.html" },
-            { t: "Burn Down Charts", b: ["Visualizing work remaining vs. time in a sprint.", "Early warning for scope creep or blocked items.", "Shared accountability tool for the squad."], tag: "Execution", url: "https://www.atlassian.com/agile/scrum/burndown-charts" },
-            { t: "Churn Rate", b: ["Percentage of users who cancel in a given period.", "The 'silent killer' of growth in SaaS/Fintech.", "Must be analyzed via Cohort Analysis."], tag: "Retention", url: "https://www.investopedia.com/terms/c/churnrate.asp" },
-            { t: "North Star Metric", b: ["The key leading indicator of core customer value.", "Examples: Airbnb (Nights Booked); Spotify (Listening time).", "Aligns all squads toward one goal."], tag: "Strategy", url: "https://amplitude.com/blog/north-star-metric" },
-            { t: "LTV/CAC Ratio", b: ["Target is 3:1 for healthy growth.", "Measures the efficiency of marketing and product value.", "Used to decide when to scale acquisition spend."], tag: "Growth", url: "https://hbr.org/2011/11/the-customer-centered-enterprise" },
-            { t: "Sunk Cost Fallacy", b: ["Continuing to invest because you've already spent money.", "Senior POs must be willing to 'Kill your darlings'.", "Focus on future ROI, not past effort."], tag: "Psychology", url: "https://hbr.org/2015/03/the-sunk-cost-fallacy" },
-            { t: "User Story Mapping", b: ["Visualizing the user journey to identify MVP gaps.", "Organizes backlog by user workflow, not technical layer.", "Created by Jeff Patton."], tag: "Planning", url: "https://www.jpattonassociates.com/user-story-mapping/" },
-            { t: "Product Discovery", b: ["Validating 'What' to build before 'How' to build.", "Reduces engineering waste by prototyping and testing.", "Pioneered by Marty Cagan (SVPG)."], tag: "Discovery", url: "https://www.svpg.com/product-discovery/" },
-            { t: "Backlog Refinement", b: ["Keeping the backlog 'Ready' (DoR).", "Splitting epics and clarifying acceptance criteria.", "Prevents mid-sprint blockers for devs."], tag: "Agile", url: "https://www.scrum.org/resources/blog/product-backlog-refinement-tips" },
-            { t: "Net Promoter Score (NPS)", b: ["% Promoters minus % Detractors.", "Measure of customer loyalty and word-of-mouth potential.", "Should be used alongside qualitative interviews."], tag: "Sentiment", url: "https://www.nielsenmorman.com/articles/nps-pros-cons" },
-            { t: "Cost of Delay", b: ["Revenue/Value lost by delaying a feature 1 week.", "Used to prioritize high-value/urgent tasks over 'noise'.", "Refines the ROI calculation for the roadmap."], tag: "Prioritization", url: "https://reforge.com/blog/cost-of-delay" },
-            { t: "Product Vision", b: ["The 3-5 year aspirational goal.", "Acts as the North Star for all strategic decisions.", "Vision is the 'Why'; Strategy is the 'How'."], tag: "Strategy", url: "https://www.svpg.com/product-vision-vs-product-strategy/" },
-            { t: "Stakeholder RACI", b: ["Responsible, Accountable, Consulted, Informed.", "Clarifies decision rights in complex organizations.", "PO is 'Accountable' for product value."], tag: "Leadership", url: "https://www.cio.com/article/239716/project-management-raci-matrix-guide.html" },
-            { t: "Conversion Funnels", b: ["Mapping user steps from landing to transaction.", "Identifying friction points that cause drop-offs.", "Metric: Activation Rate."], tag: "Growth", url: "https://vwo.com/blog/conversion-funnel-analysis/" },
-            { t: "Network Effects", b: ["Value of product increases as more users join.", "Direct (Social) vs Indirect (Marketplace/Uber).", "Creates massive defensive moats."], tag: "Strategy", url: "https://a16z.com/2016/03/07/all-about-network-effects/" },
-            { t: "A/B Testing", b: ["Testing two versions for statistical significance.", "Standard for evidence-based product iteration.", "Uses P-Values to avoid noise decisions."], tag: "Testing", url: "https://hbr.org/2017/09/the-surprising-power-of-online-experiments" },
-            { t: "Definition of Done (DoD)", b: ["Quality checklist for every increment.", "Includes QA, Code Review, Security, and Docs.", "Non-negotiable for high-scale products."], tag: "Agile", url: "https://www.scrum.org/resources/blog/walking-through-definition-done" },
-            { t: "DAU/MAU Ratio", b: ["Stickiness metric (Daily Active / Monthly Active).", "Measures habit-forming potential.", "Target 20%+ for successful apps."], tag: "Growth", url: "https://mixpanel.com/blog/dau-mau-ratio-stickiness/" },
-            { t: "Flywheel Effect", b: ["Momentum built through small, consistent wins.", "Strategy: Lower price -> More users -> More data -> Better price.", "Jim Collins concept."], tag: "Strategy", url: "https://www.jimcollins.com/concepts/the-flywheel.html" },
-            { t: "Opportunity Solution Tree", b: ["Mapping Desired Outcome -> Opportunity -> Solution.", "Prevents solution-first thinking bias.", "By Teresa Torres."], tag: "Discovery", url: "https://www.producttalk.org/2016/08/opportunity-solution-tree/" },
-            { t: "Technical Spikes", b: ["Time-boxed research to explore feasibility.", "Used to reduce uncertainty in high-risk features.", "Result is knowledge, not necessarily code."], tag: "Agile", url: "https://www.atlassian.com/agile/scrum/spikes" },
-            { t: "Product Ops", b: ["Operationalizing data, tools, and processes for PMs.", "Standardizes experimentation and feedback loops.", "Key for scaling from 1 to 10 squads."], tag: "Ops", url: "https://pendo.io/glossary/product-ops/" },
-            { t: "Definition of Ready (DoR)", b: ["Criteria for a story to be ready for the sprint.", "Clear AC, dependencies mapped, designs ready.", "Prevents 'start-stop' development."], tag: "Agile", url: "https://www.scrum.org/resources/blog/walking-through-definition-ready" },
-            { t: "Vanity Metrics", b: ["Numbers that look good but don't drive value.", "Examples: Hits, downloads, total registered users.", "Focus instead on Retention and Revenue."], tag: "Analytics", url: "https://hbr.org/2015/03/dont-be-fooled-by-vanity-metrics" },
-            { t: "Cycle Time", b: ["Speed from 'Start' to 'Finish' of a task.", "Primary metric for measuring squad throughput.", "Used in Kanban for flow optimization."], tag: "Agile", url: "https://www.kanbanize.com/kanban-resources/kanban-analytics/cycle-time-vs-lead-time" },
-            { t: "Pivot", b: ["Fundamental change in strategy based on data.", "Example: Slack shifting from gaming to chat.", "Requires high stakeholder trust."], tag: "Strategy", url: "https://hbr.org/2020/09/how-to-pivot" },
-            { t: "Product Backlog", b: ["Prioritized list of all future work.", "Solely owned and ordered by the PO.", "Must remain transparent and visible."], tag: "Agile", url: "https://www.scrum.org/resources/scrum-guide#product-backlog" },
-            { t: "ARR/MRR", b: ["Annual/Monthly Recurring Revenue.", "Standard health metric for SaaS business models.", "Focus on 'Net Retention' revenue."], tag: "Finance", url: "https://www.investopedia.com/terms/m/mrr.asp" },
-            { t: "First Principles", b: ["Breaking problems down to core truths.", "Popularized by Elon Musk for innovation.", "Thinking from scratch instead of by analogy."], tag: "Logic", url: "https://fs.blog/first-principles/" },
-            { t: "ARPU", b: ["Average Revenue Per User.", "Used to calculate LTV and segment customer value.", "Essential for monetization strategy."], tag: "Finance", url: "https://mixpanel.com/blog/average-revenue-per-user-arpu/" },
-            { t: "MVP", b: ["Smallest version for maximum learning.", "Not a low-quality product; a lean learning tool.", "Focus on core user value."], tag: "Strategy", url: "https://hbr.org/2013/05/why-the-lean-start-up-changes-everything" }
+            { t: "The Mom Test", b: ["Don't ask for opinions; ask about past behavior.", "Facts > Compliments.", "Validate pain before building solutions."], tag: "Discovery", url: "https://www.momtestbook.com/" },
+            { t: "MECE Principle", b: ["Mutually Exclusive, Collectively Exhaustive.", "McKinsey standard for structured thinking.", "Avoid logic gaps in strategy."], tag: "Strategy", url: "https://www.mckinsey.com/" },
+            { t: "HEART Framework", b: ["Happiness, Engagement, Adoption, Retention, Task Success.", "Google's UX metrics for product health."], tag: "Metrics", url: "https://uxdesign.cc/googles-heart-framework-853240e05697" },
+            { t: "CIRCLES Method", b: ["Comprehend, Identify, Report, Cut, List, Evaluate, Summarize.", "Standard for design interviews."], tag: "Design", url: "https://www.productmanagementexercises.com/" },
+            { t: "RICE Prioritization", b: ["Reach, Impact, Confidence, Effort.", "Removes emotional bias from roadmapping."], tag: "Planning", url: "https://www.intercom.com/blog/" },
+            { t: "TAM/SAM/SOM", b: ["Total, Serviceable, Obtainable market sizing.", "Required for business case feasibility."], tag: "Market", url: "https://www.investopedia.com/" },
+            { t: "Opportunity Cost", b: ["The value of the 'next best' thing not done.", "Your tool for saying 'No' to stakeholders."], tag: "Economics", url: "https://hbr.org/" },
+            { t: "Outcome vs Output", b: ["Outcome: Business impact (Churn).", "Output: Feature count (Jira tickets)."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Unit Economics", b: ["LTV (Value) vs CAC (Cost).", "Crucial for SaaS path-to-profitability."], tag: "Finance", url: "https://hbr.org/" },
+            { t: "Technical Debt", b: ["Cost of fast hacks vs clean code.", "Reserve 20% capacity for stability."], tag: "Agile", url: "https://martinfowler.com/" },
+            { t: "North Star Metric", b: ["Single leading indicator of core value.", "Aligns all squads to one goal."], tag: "Strategy", url: "https://amplitude.com/blog/" },
+            { t: "LTV/CAC Ratio", b: ["3:1 is the gold standard for growth.", "Measures marketing/product efficiency."], tag: "Growth", url: "https://hbr.org/" },
+            { t: "Sunk Cost Fallacy", b: ["Investing further just because of past spend.", "Don't be afraid to kill failing projects."], tag: "Psychology", url: "https://hbr.org/" },
+            { t: "User Story Mapping", b: ["Visualizing journey to find MVP gaps.", "Focuses on user flow over dev layers."], tag: "Agile", url: "https://www.jpattonassociates.com/" },
+            { t: "Product Discovery", b: ["Validating 'What' before 'How'.", "Prototyping to reduce engineering waste."], tag: "Discovery", url: "https://www.svpg.com/" },
+            { t: "Backlog Refinement", b: ["Keeping work 'Ready' for sprints.", "Clarifying AC and splitting epics."], tag: "Scrum", url: "https://www.scrum.org/" },
+            { t: "Net Promoter Score", b: ["% Promoters minus % Detractors.", "Measure of brand loyalty and word-of-mouth."], tag: "Sentiment", url: "https://www.nielsen.com/" },
+            { t: "Cost of Delay", b: ["Value lost by delaying a launch.", "Prioritizes urgent high-value tasks."], tag: "Strategy", url: "https://reforge.com/" },
+            { t: "Product Vision", b: ["The 3-5 year aspirational 'Why'.", "Strategy is the 'How' to get there."], tag: "Leadership", url: "https://www.svpg.com/" },
+            { t: "Stakeholder RACI", b: ["Responsible, Accountable, Consulted, Informed.", "Clarifies decision rights."], tag: "Leadership", url: "https://www.cio.com/" },
+            { t: "Conversion Funnels", b: ["Mapping steps from landing to purchase.", "Identifying drop-off friction points."], tag: "Growth", url: "https://vwo.com/blog/" },
+            { t: "Network Effects", b: ["Product value increases with user count.", "Creates powerful defensive moats."], tag: "Strategy", url: "https://a16z.com/" },
+            { t: "A/B Testing", b: ["Statistical significance in changes.", "Standard for evidence-led growth."], tag: "Testing", url: "https://hbr.org/" },
+            { t: "Definition of Done", b: ["Quality checklist for all code.", "Includes security and documentation."], tag: "Quality", url: "https://www.scrum.org/" },
+            { t: "DAU/MAU Stickiness", b: ["Ratio of daily to monthly users.", "Indicates habit-forming potential."], tag: "Growth", url: "https://mixpanel.com/blog/" },
+            { t: "Flywheel Effect", b: ["Small wins building massive momentum.", "Lower prices -> More users -> More data."], tag: "Strategy", url: "https://www.jimcollins.com/" },
+            { t: "Opportunity Solution Tree", b: ["Outcome -> Opportunity -> Solution.", "Avoids solution-first bias."], tag: "Discovery", url: "https://www.producttalk.org/" },
+            { t: "Technical Spikes", b: ["Time-boxed research for feasibility.", "Reduces risk in complex features."], tag: "Agile", url: "https://www.atlassian.com/" },
+            { t: "Product Ops", b: ["Operationalizing tools and data for PMs.", "Essential for scaling large orgs."], tag: "Ops", url: "https://pendo.io/" },
+            { t: "Definition of Ready", b: ["Criteria for story to enter sprint.", "Clear AC and dependencies."], tag: "Scrum", url: "https://www.scrum.org/" },
+            { t: "Vanity Metrics", b: ["Good looking numbers with zero value.", "Hits/Downloads vs Retention/Revenue."], tag: "Analytics", url: "https://hbr.org/" },
+            { t: "Cycle Time", b: ["Speed from 'Start' to 'Finish'.", "Squad throughput optimization metric."], tag: "Agile", url: "https://www.atlassian.com/" },
+            { t: "Pivot", b: ["Fundamental strategy change on data.", "Slack game to chat transition."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Product Backlog", b: ["Ordered list of all future work.", "Solely owned and ordered by the PO."], tag: "Agile", url: "https://www.scrum.org/" },
+            { t: "ARR/MRR", b: ["Annual/Monthly Recurring Revenue.", "Health metric for SaaS business."], tag: "Finance", url: "https://www.investopedia.com/" },
+            { t: "First Principles", b: ["Breaking problems to core truths.", "Innovation tool for complex systems."], tag: "Logic", url: "https://fs.blog/" },
+            { t: "ARPU", b: ["Average Revenue Per User.", "Measures monetization and segment value."], tag: "Finance", url: "https://mixpanel.com/" },
+            { t: "MVP", b: ["Smallest version for maximum learning.", "A tool to validate core value."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Churn Rate", b: ["% of users leaving in a period.", "The primary metric for retention."], tag: "Metrics", url: "https://www.investopedia.com/" },
+            { t: "Burn Rate", b: ["Monthly cash spend velocity.", "Context for roadmap planning."], tag: "Finance", url: "https://www.investopedia.com/" }
         ],
         business: [
-            { t: "Venn of Product Success", b: ["Desirability (Users), Viability (Business), Feasibility (Tech).", "The intersection where sustainable products live.", "Missing any pillar leads to failure."], tag: "Strategy", url: "https://hbr.org/2020/01/the-three-pillars-of-a-successful-product" },
-            { t: "Build vs. Buy vs. Partner", b: ["Build: Core Moat. Buy: Utility (e.g. Chat). Partner: Distribution.", "Strategic decision to maximize speed-to-market.", "Requires TCO (Total Cost of Ownership) analysis."], tag: "Strategy", url: "https://hbr.org/2011/05/the-decision-to-buy-build-or" },
-            { t: "Operating Leverage", b: ["Revenue growth vs fixed cost growth.", "Software has high leverage (low marginal cost).", "Seniors look for efficiency as product scales."], tag: "Finance", url: "https://www.investopedia.com/terms/o/operatingleverage.asp" },
-            { t: "Pre-Mortem Analysis", b: ["Imagine the project failed—working back to 'Why'.", "Identifies hidden risks and feasibility gaps early.", "Risk mitigation tool for 8-10yr POs."], tag: "Risk", url: "https://hbr.org/2007/09/the-ethical-mind" },
-            { t: "Cannibalization Risk", b: ["Will new features eat existing revenue?", "Decision: Cannibalize yourself before competitors do.", "Key for established BFSI/Enterprise firms."], tag: "Risk", url: "https://hbr.org/2012/03/when-to-cannibalize-your-own-sales" },
-            { t: "Economic Feasibility", b: ["Assessing ROI and Payback period.", "Does the projected revenue justify the dev spend?", "Essential for any board-level business case."], tag: "Finance", url: "https://www.investopedia.com/terms/f/feasibility-study.asp" },
-            { t: "Strategic Alignment", b: ["Does this feature move the Needle for Corporate OKRs?", "Feasible features are killed if they don't align.", "Senior PO role is to ensure team work fits Vision."], tag: "Leadership", url: "https://hbr.org/2016/11/strategic-alignment" },
-            { t: "Product-Led Growth (PLG)", b: ["Product usage drives acquisition and expansion.", "Relies on high desirability and zero-friction onboarding.", "Shifts CAC from Sales to R&D."], tag: "Growth", url: "https://openviewpartners.com/product-led-growth/" },
-            { t: "Technical Feasibility Risk", b: ["Can we build it with current stack/skills?", "Identify Spikes and POCs before roadmap commitment.", "Marty Cagan's core risk pillar."], tag: "Engineering", url: "https://www.svpg.com/technical-risk/" },
-            { t: "Market Desirability", b: ["Do people have the pain point? (Mom Test).", "Validation through observational data, not opinions.", "Primary goal of the Discovery phase."], tag: "Discovery", url: "https://www.momtestbook.com/" },
-            { t: "The 10x Rule", b: ["Displacing an incumbent requires being 10x better.", "Feasibility of disruption depends on this delta.", "Applies to speed, cost, or UX quality."], tag: "Market", url: "https://hbr.org/2006/06/eager-sellers-and-stony-buyers" },
-            { t: "Moat Strategy", b: ["What can't be easily copied by a technical rival?", "Examples: Brand, Data, Licenses, Network Effects.", "Prevents rapid commoditization of the product."], tag: "Strategy", url: "https://a16z.com/2016/03/07/all-about-network-effects/" },
-            { t: "Value Proposition Canvas", b: ["Mapping Pains/Gains to the solution.", "Ensures desirability before feasibility is discussed.", "Created by Strategyzer."], tag: "Design", url: "https://www.strategyzer.com/canvas/value-proposition-canvas" },
-            { t: "Blue Ocean Strategy", b: ["Creating market space where competition is irrelevant.", "Redefining the value proposition vs incumbents.", "Wii vs Xbox/PS3 case study."], tag: "Strategy", url: "https://hbr.org/2004/10/blue-ocean-strategy" },
-            { t: "Economies of Scale", b: ["Unit cost decreases as transaction volume grows.", "Feasibility of low-price strategies relies on this.", "Key for payment/transactional platforms."], tag: "Finance", url: "https://www.investopedia.com/terms/e/economiesofscale.asp" },
-            { t: "Switching Costs", b: ["Effort for a user to move to a competitor.", "Moat: High integrations/data lock-in.", "Creates a barrier to entry for rivals."], tag: "Retention", url: "https://hbr.org/2014/05/the-cost-of-customer-loyalty" },
-            { t: "Resource Allocation", b: ["Balancing 'Run the Bank' vs 'Change the Bank'.", "Strategic split between maintenance and innovation.", "Senior leadership decision."], tag: "Leadership", url: "https://hbr.org/2017/09/how-to-allocate-resources-strategically" },
-            { t: "First-Mover Disadvantage", b: ["Second-movers often win by seeing first-mover mistakes.", "Strategy: Be the 'Fast Follower' with better execution.", "Feasibility vs Market speed trade-off."], tag: "Strategy", url: "https://hbr.org/2005/04/the-half-truth-of-first-mover-advantage" },
-            { t: "Minimum Viable Business", b: ["Can the entire firm support the business model?", "Beyond tech: Operations, Support, Legal feasibility.", "Ensures the product can scale profitably."], tag: "Business", url: "https://hbr.org/2013/05/why-the-lean-start-up-changes-everything" },
-            { t: "Price-Value Gap", b: ["When the price is lower than the perceived value.", "Strategy: Maximizing desirability to increase price.", "Directly impacts product viability."], tag: "Finance", url: "https://hbr.org/2016/09/the-elements-of-value" }
+            { t: "Success Venn", b: ["Desirability, Viability, Feasibility.", "Where sustainable products live."], tag: "Pillars", url: "https://hbr.org/" },
+            { t: "Build vs Buy vs Partner", b: ["Build Moat; Buy Utility.", "TCO (Total Cost of Ownership) analysis."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Operating Leverage", b: ["Revenue growth vs fixed cost growth.", "Software's scalability advantage."], tag: "Finance", url: "https://www.investopedia.com/" },
+            { t: "Pre-Mortem", b: ["Imagining failure to identify risks.", "Mitigation tool for Senior POs."], tag: "Risk", url: "https://hbr.org/" },
+            { t: "Cannibalization", b: ["Will new features eat current revenue?", "Cannibalize yourself before rivals do."], tag: "Risk", url: "https://hbr.org/" },
+            { t: "Economic Feasibility", b: ["Projected ROI vs Engineering spend.", "The 'Yes/No' for business cases."], tag: "Finance", url: "https://www.investopedia.com/" },
+            { t: "Strategic Alignment", b: ["Matching features to corporate OKRs.", "PO as the bridge to company vision."], tag: "Leadership", url: "https://hbr.org/" },
+            { t: "PLG (Product Led Growth)", b: ["Usage drives acquisition/expansion.", "Focus on low-friction onboarding."], tag: "Growth", url: "https://openviewpartners.com/" },
+            { t: "Technical Feasibility", b: ["Can we build it with current skills?", "Risk mitigation via Spikes."], tag: "Engineering", url: "https://www.svpg.com/" },
+            { t: "Market Desirability", b: ["Does the market actually want this?", "Proven via behavior, not surveys."], tag: "Discovery", url: "https://www.momtestbook.com/" },
+            { t: "The 10x Rule", b: ["Must be 10x better to displace rivals.", "Disruption requires massive deltas."], tag: "Market", url: "https://hbr.org/" },
+            { t: "Moat Strategy", b: ["Unfair advantages (Data, Network).", "Prevents commoditization."], tag: "Strategy", url: "https://a16z.com/" },
+            { t: "Value Prop Canvas", b: ["Mapping Pains/Gains to solution.", "Ensures fit before feasibility."], tag: "Design", url: "https://www.strategyzer.com/" },
+            { t: "Blue Ocean", b: ["Creating markets with zero rivals.", "Redefining value vs incumbents."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Scale Economies", b: ["Lower unit cost with higher volume.", "Key for payment platforms."], tag: "Finance", url: "https://www.investopedia.com/" },
+            { t: "Switching Costs", b: ["Effort for user to move to rival.", "Lock-in via data and integrations."], tag: "Retention", url: "https://hbr.org/" },
+            { t: "Resource Allocation", b: ["Run the Bank vs Change the Bank.", "Balancing maintenance/innovation."], tag: "Leadership", url: "https://hbr.org/" },
+            { t: "Fast Follower", b: ["Winning by fixing 1st mover mistakes.", "Execution-led strategy."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "MVB (Business)", b: ["Testing if the whole firm can support.", "Legal, Support, Ops feasibility."], tag: "Business", url: "https://hbr.org/" },
+            { t: "Price-Value Gap", b: ["Maximizing desirability to raise price.", "Impacts long-term viability."], tag: "Finance", url: "https://hbr.org/" }
         ],
         qa: [
-            { t: "CEO wants a feature today. Respond?", b: ["Acknowledge goal. Assess impact on Sprint Goal.", "Ask 'What do we drop?' (Opportunity Cost).", "Use RICE to show impact vs noise."], tag: "Leadership", url: "https://www.scrum.org/resources/blog/stakeholders-bypassing-product-owner" },
-            { t: "Prioritizing Tech Debt vs Growth?", b: ["20% capacity for 'Stability'.", "Show 'Cost of Delay' of system failure.", "Sustainable speed over short-term hacks."], tag: "Engineering", url: "https://martinfowler.com/bliki/TechnicalDebt.html" },
-            { t: "Applying CIRCLES for design?", b: ["Comprehend, Identify, Report, Cut, List, Evaluate.", "Shows methodical senior-level thinking.", "Focus on users before features."], tag: "Interview", url: "https://www.tryexponent.com/blog/circles-framework-product-design" },
-            { t: "Handling Stakeholder Gold-Plating?", b: ["Show data: more features = more friction.", "A/B test simpler version first.", "Focus on MVP/MMP logic."], tag: "Strategy", url: "https://vwo.com/blog/gold-plating-in-product-management/" },
-            { t: "First 90 Days Strategy?", b: ["30: Listen & Audit. 60: Early win.", "90: Present Roadmap Pivot.", "Trust built through evidence."], tag: "Career", url: "https://lennysnewsletter.com" },
-            { t: "Winning back churned users?", b: ["Interview to find 'Dealbreaker' gap.", "Prioritize missing moat in H2 roadmap.", "Retention-led discovery."], tag: "Retention", url: "https://hbr.org/2016/04/how-to-win-back-lost-customers" },
-            { t: "Managing Team Burnout?", b: ["Cut low-value features from roadmap.", "Introduce 'No-Meeting' Deep Work days.", "Reset Sprint Goals to realistic velocity."], tag: "Management", url: "https://www.atlassian.com/blog/productivity/avoid-burnout-remote-teams" },
-            { t: "Success for Platform Teams?", b: ["Metric: Time to first API transaction.", "Active internal developer count.", "Infrastructure uptime/reliability."], tag: "Platforms", url: "https://martinfowler.com/articles/platform-product-manager.html" },
-            { t: "Prioritizing Fintech Compliance?", b: ["Compliance is a 'Constraint' on innovation.", "Design partner: Involve Legal/Risk early.", "Preventive vs Reactive dev."], tag: "Fintech", url: "https://www.mckinsey.com/industries/financial-services/our-insights" },
-            { t: "Leading 0-to-1 Innovation?", b: ["Secure 'Sandbox' to bypass legacy red tape.", "Focus on MVP speed to prove value.", "Scale only after PMF is proven."], tag: "Innovation", url: "https://hbr.org/2019/11/how-large-companies-can-innovate" },
-            { t: "Outcome vs Output explanation?", b: ["Outcome is the business needle moved.", "Output is the jira ticket closed.", "Senior POs manage the Needle."], tag: "Strategy", url: "https://hbr.org/2012/11/stop-measuring-outcomes-and-start-measuring-impact" },
-            { t: "Communicating 'No'?", b: ["Show the Opportunity Cost clearly.", "Show what the team IS building instead.", "Align 'No' with the North Star."], tag: "Communication", url: "https://hbr.org/2015/03/how-to-say-no-to-a-request" },
-            { t: "Handling Board-Level Delays?", b: ["Radical transparency + Recovery plan.", "Updated confidence intervals.", "Zero surprises culture."], tag: "Management", url: "https://hbr.org/2016/01/how-to-tell-your-boss-bad-news" },
-            { t: "Scaling from 1 to 5 squads?", b: ["Shift to 'Mission-Led' autonomous tribes.", "OKRs to ensure alignment.", "Product Ops investment."], tag: "Leadership", url: "https://www.mckinsey.com/capabilities/operations/our-insights" },
-            { t: "Buy vs Build Decision?", b: ["Build Moat; Buy Utility.", "TCO (Total Cost of Ownership) analysis.", "Speed-to-market weighting."], tag: "Finance", url: "https://hbr.org/2011/05/the-decision-to-buy-build-or" },
-            { t: "Evaluating PMF (Product-Market Fit)?", b: ["Retention Curve flattening.", "40% 'Very Disappointed' survey result.", "Organic (non-paid) growth."], tag: "Strategy", url: "https://reforge.com/blog/product-market-fit-is-not-a-point-in-time" },
-            { t: "Handling Legacy Tech?", b: ["Strangler Pattern: Slowly replace old parts.", "Map business value to refactor efforts.", "Incremental modernization."], tag: "Execution", url: "https://martinfowler.com/bliki/StranglerFigApplication.html" },
-            { t: "Managing Multi-Stakeholder Conflict?", b: ["Facilitate Prioritization Workshops.", "Data as the objective tie-breaker.", "Align to North Star Metric."], tag: "Leadership", url: "https://hbr.org/2016/01/how-to-handle-conflict-with-stakeholders" },
-            { t: "Post-Mortem for Failure?", b: ["Blameless analysis of assumptions.", "Update the discovery process.", "Share lessons across the org."], tag: "Execution", url: "https://svpg.com/post-mortems/" },
-            { t: "Measuring PO Personal Growth?", b: ["Shift from 'Agile Master' to 'Business Leader'.", "Strategic impact on unit economics.", "Team autonomy and retention."], tag: "Career", url: "https://svpg.com/product-vs-feature-teams/" }
+            { t: "CEO Feature Request?", b: ["Acknowledge. Ask 'What do we drop?'", "Use RICE to show impact vs cost."], tag: "Leadership", url: "https://www.scrum.org/" },
+            { t: "Tech Debt vs Growth?", b: ["20% stability capacity rule.", "Show Cost of Delay of failure."], tag: "Engineering", url: "https://martinfowler.com/" },
+            { t: "First 90 Days?", b: ["Listen/Audit -> Early Win -> Roadmap.", "Trust built on evidence."], tag: "Career", url: "https://lennysnewsletter.com/" },
+            { t: "Winning Churners?", b: ["Interview to find 'Dealbreaker' gap.", "Prioritize missing moat."], tag: "Retention", url: "https://hbr.org/" },
+            { t: "Outcome vs Output?", b: ["Outcome: Business needle moved.", "Output: Feature ticket closed."], tag: "Strategy", url: "https://hbr.org/" },
+            { t: "Communicating 'No'?", b: ["Show Opportunity Cost.", "Align 'No' to North Star Metric."], tag: "Communication", url: "https://hbr.org/" },
+            { t: "Scaling 1 to 5 Squads?", b: ["Autonomous tribes + OKR alignment.", "Invest in Product Ops."], tag: "Leadership", url: "https://www.mckinsey.com/" },
+            { t: "Handling Failure?", b: ["Blameless analysis of assumptions.", "Update discovery process."], tag: "Execution", url: "https://svpg.com/" },
+            { t: "Success for Platform?", b: ["Metric: Time to first API call.", "Internal dev satisfaction."], tag: "Platforms", url: "https://martinfowler.com/" },
+            { t: "Fintech Compliance?", b: ["Compliance is a 'Constraint'.", "Involve Legal/Risk as design partners."], tag: "Fintech", url: "https://www.mckinsey.com/" },
+            { t: "Gold-Plating?", b: ["Data: More features = More friction.", "Focus on MMP logic."], tag: "Strategy", url: "https://vwo.com/" },
+            { t: "Burnout?", b: ["Cut low-value features.", "Protect Deep Work days."], tag: "Management", url: "https://www.atlassian.com/" },
+            { t: "Strategy Change?", b: ["Audit roadmap for high-CAC items.", "Cut projects not fitting new goal."], tag: "Leadership", url: "https://hbr.org/" },
+            { t: "Buy vs Build?", b: ["Build Moat; Buy Utility.", "TCO analysis over 3 years."], tag: "Finance", url: "https://hbr.org/" },
+            { t: "Multi-Stakeholders?", b: ["Prioritization workshops.", "Data as the tie-breaker."], tag: "Leadership", url: "https://hbr.org/" },
+            { t: "PMF Evaluation?", b: ["Retention curve flattening.", "40% 'Disappointed' survey."], tag: "Growth", url: "https://reforge.com/" },
+            { t: "Legacy Tech?", b: ["Strangler pattern: Incremental swap.", "Map business value to refactor."], tag: "Execution", url: "https://martinfowler.com/" },
+            { t: "PO Success?", b: ["Outcome (Churn) vs Output (Feature).", "Team autonomy levels."], tag: "Metrics", url: "https://svpg.com/" },
+            { t: "Estimation Conflict?", b: ["Three Amigos workshop.", "Consensus through understanding."], tag: "Agile", url: "https://www.atlassian.com/" },
+            { t: "Board Delays?", b: ["Radical transparency + Recovery plan.", "Zero surprise culture."], tag: "Management", url: "https://hbr.org/" }
         ],
         cases: [
-            { t: "DBS: GANDALF Transformation", b: ["Legacy bank to top global tech player.", "API-first architecture scaling.", "World's Best Bank via innovation."], tag: "Fintech", url: "https://www.dbs.com/innovation/dbs-gandalf.html" },
-            { t: "Wise: SWIFT Disruption", b: ["Local matching to bypass FX networks.", "Price transparency as a moat.", "Profitable, high-volume growth."], tag: "Fintech", url: "https://wise.com/gb/blog/the-wise-story" },
-            { t: "Stripe: API Moat", b: ["7 lines of code for full payment stack.", "Devs as the key gatekeepers.", "$1T+ annual processing volume."], tag: "B2B", url: "https://stripe.com/en-in/about" },
-            { t: "Klarna: GenAI Efficiency", b: ["AI replacing 700 support roles.", "25% faster resolution time.", "Operating leverage case study."], tag: "AI", url: "https://www.klarna.com/international/press/" },
-            { t: "Netflix: Core Moat Strategy", b: ["Outsourced infra to AWS to focus on Content.", "Don't build what isn't your moat.", "Global scale benchmark."], tag: "Strategy", url: "https://aws.amazon.com/solutions/case-studies/netflix/" },
-            { t: "Airbnb: Photo Experiment", b: ["Pro photos doubled revenue in NYC.", "Quality as a core product feature.", "Validated via lean experiment."], tag: "Marketplace", url: "https://hbr.org/2016/04/how-airbnb-found-its-fit" },
-            { t: "Slack: Game to Chat Pivot", b: ["Internal tool became the global product.", "Pivot based on 100% internal adoption.", "Sold for $27.7B."], tag: "SaaS", url: "https://slack.com/blog/news/slack-history" },
-            { t: "Spotify: Discover Weekly", b: ["Shift from Search to ML-Lists.", "50% of time from AI playlists.", "Industry leader in retention."], tag: "Media", url: "https://spotify.design/article/how-spotify-discovery-weekly-works" },
-            { t: "Teams: Distribution Move", b: ["Bundled with O365 to kill Slack growth.", "Distribution beat standalone Product.", "Enterprise moat strategy."], tag: "Enterprise", url: "https://microsoft.com/en-in/microsoft-teams/group-chat-software" },
-            { t: "Robinhood: PFOF Disruptor", b: ["Zero-commission model via PFOF.", "Forced industry-wide fee drops.", "Regulated fintech disruption."], tag: "Fintech", url: "https://robinhood.com/us/en/about-us/" },
-            { t: "Amazon: Prime Ecosystem", b: ["Zero-friction shipping for retention.", "Prime users spend 2x more.", "Lock-in via ecosystem value."], tag: "E-Commerce", url: "https://hbr.org/2016/02/the-real-reason-amazon-prime-is-so-successful" },
-            { t: "Dominos: Tech Turnaround", b: ["Pizza co -> Tech co pivot.", "AnyWare ordering via Car/TV/Watch.", "Outperformed Google stock growth."], tag: "Retail", url: "https://hbr.org/2016/11/dominos-ceo-on-how-he-turned-around-the-company" },
-            { t: "Apple: Services Shift", b: ["Hardware to recurring high-margin subs.", "iCloud/Music/Store ecosystem.", "Sustainable long-term growth."], tag: "Strategy", url: "https://www.apple.com/in/newsroom/" },
-            { t: "Tesla: Direct-to-Consumer", b: ["Removed dealerships for data ownership.", "Higher margins and faster feedback.", "Brand as a strategic moat."], tag: "Auto", url: "https://www.tesla.com/en_in/about" },
-            { t: "Shopify: Anti-Amazon Moat", b: ["Empowering individual merchants.", "Platform apps/themes ecosystem.", "10% of US e-commerce share."], tag: "E-Commerce", url: "https://www.shopify.com/in/about" },
-            { t: "Uber: Surge Economics", b: ["Dynamic pricing for reliability.", "Economics to solve supply/demand.", "Operational efficiency leader."], tag: "Economics", url: "https://hbr.org/2015/12/the-logic-of-ubers-surge-pricing" },
-            { t: "Revolut: Super-App", b: ["Forex -> Stocks -> Crypto -> Stays.", "The 'OS for Money' strategy.", "$33B+ peak valuation."], tag: "Fintech", url: "https://www.revolut.com/en-IN/about/" },
-            { t: "Duolingo: Gamified Growth", b: ["Streaks driving daily retention.", "Psychology-led habit formation.", "EdTech category leader."], tag: "EdTech", url: "https://www.duolingo.com/about" },
-            { t: "Disney+: Bundle Defense", b: ["Hulu/ESPN/Disney bundle for churn.", "100M+ users in record time.", "Content moat strategy."], tag: "Media", url: "https://disneyplus.com" },
-            { t: "Starbucks: App Strategy", b: ["Mobile order & pay as retail leader.", "25% of orders via mobile.", "Queue reduction via digital."], tag: "Retail", url: "https://hbr.org/2016/01/how-starbucks-is-winning-the-mobile-wars" }
+            { t: "DBS: GANDALF", b: ["Legacy bank to tech giant.", "API-first cloud scaling."], tag: "Fintech", url: "https://www.dbs.com/" },
+            { t: "Wise: Disruptor", b: ["Bypassing SWIFT networks.", "Price transparency moat."], tag: "Fintech", url: "https://wise.com/" },
+            { t: "Stripe: API Moat", b: ["7 lines of code for payments.", "Devs as gatekeepers."], tag: "B2B", url: "https://stripe.com/" },
+            { t: "Klarna: GenAI", b: ["AI replacing 700 support roles.", "25% faster resolution."], tag: "AI", url: "https://www.klarna.com/" },
+            { t: "Netflix: Core Moat", b: ["Outsourced infra to focus Content.", "Strategic outsourcing."], tag: "Strategy", url: "https://aws.amazon.com/" },
+            { t: "Airbnb: Photos", b: ["Pro photos tripled bookings.", "Lean experiment success."], tag: "Discovery", url: "https://hbr.org/" },
+            { t: "Slack: Pivot", b: ["Game tool became the product.", "High internal adoption signal."], tag: "SaaS", url: "https://slack.com/" },
+            { t: "Spotify: Discovery", b: ["ML playlists for retention.", "50% listening from AI."], tag: "Media", url: "https://spotify.design/" },
+            { t: "Teams: Bundle", b: ["Microsoft distribution vs Slack.", "Distribution beats Product."], tag: "Enterprise", url: "https://microsoft.com/" },
+            { t: "Robinhood: PFOF", b: ["Zero-commission disruption.", "Regulated fintech growth."], tag: "Fintech", url: "https://robinhood.com/" },
+            { t: "Amazon: Prime", b: ["Frictionless retail ecosystem.", "Users spend 2x more."], tag: "E-Commerce", url: "https://hbr.org/" },
+            { t: "Dominos: Tech Co", b: ["Pizza to tech company pivot.", "Ordering via Car/TV/Watch."], tag: "Retail", url: "https://hbr.org/" },
+            { t: "Apple: Services", b: ["Hardware to recurring margins.", "Sustainable growth strategy."], tag: "Strategy", url: "https://apple.com/" },
+            { t: "Tesla: Direct", b: ["Removed dealers for data.", "Tighter feedback loops."], tag: "Auto", url: "https://tesla.com/" },
+            { t: "Shopify: Anti-Moat", b: ["Empowering solo merchants.", "Ecosystem of apps/themes."], tag: "E-Commerce", url: "https://shopify.com/" },
+            { t: "Uber: Surge", b: ["Economics for reliability.", "Real-time supply/demand."], tag: "Economics", url: "https://hbr.org/" },
+            { t: "Revolut: SuperApp", b: ["Banking + Crypto + Stays.", "$33B fintech leader."], tag: "Fintech", url: "https://revolut.com/" },
+            { t: "Duolingo: Gaming", b: ["Streaks for daily retention.", "Habit formation UX."], tag: "EdTech", url: "https://duolingo.com/" },
+            { t: "Disney+: Bundle", b: ["Hulu/ESPN defense move.", "100M+ users quickly."], tag: "Media", url: "https://disneyplus.com/" },
+            { t: "Starbucks: App", b: ["Mobile pay as retail leader.", "25% mobile order share."], tag: "Retail", url: "https://hbr.org/" }
         ]
     };
 
@@ -172,7 +214,7 @@
                 <div class="entry-body"><ul>${item.b.map(pt => `<li>${pt}</li>`).join('')}</ul></div>
                 <div class="entry-footer">
                     <span class="tag">${item.tag}</span>
-                    <a href="${item.url}" target="_blank" class="source-link">Read Source →</a>
+                    <a href="${item.url}" target="_blank" class="source-link">Read →</a>
                 </div>
             </div>
         `).join('');
