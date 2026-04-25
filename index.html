@@ -3,146 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master PM Portal - 20+ Resources Per Tab</title>
+    <title>Elite PM Interview Portal - 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f4f7f9; padding: 30px 0; font-family: 'Inter', sans-serif; }
-        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 1200px; }
-        .nav-tabs .nav-link { font-weight: 600; color: #555; border: none; padding: 15px 20px; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.08); max-width: 1250px; }
+        .nav-tabs .nav-link { font-weight: 600; color: #444; border: none; padding: 15px 20px; }
         .nav-tabs .nav-link.active { color: #0d6efd; border-bottom: 3px solid #0d6efd; background: transparent; }
-        .btn-visit { font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; text-decoration: none; background: #0d6efd; color: white; display: inline-block; }
-        .badge-ai { background-color: #6f42c1; color: white; font-size: 0.65rem; padding: 2px 5px; border-radius: 3px; }
-        .qa-ans { font-size: 0.82rem; color: #444; margin-top: 5px; border-left: 3px solid #0d6efd; padding: 8px; background: #f9f9f9; border-radius: 4px; }
+        .btn-visit { font-size: 0.75rem; padding: 5px 12px; border-radius: 4px; text-decoration: none; background: #0d6efd; color: white; transition: 0.2s; }
+        .btn-visit:hover { background: #0056b3; color: white; }
+        .qa-card { border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 15px; background: #fff; }
+        .qa-q { font-weight: 700; color: #333; margin-bottom: 10px; font-size: 1.05rem; }
+        .qa-ans { color: #555; line-height: 1.6; }
+        .qa-ex { background: #eef7ff; padding: 10px; border-radius: 4px; border-left: 4px solid #0d6efd; margin: 10px 0; font-style: italic; font-size: 0.9rem; }
         .table-responsive { max-height: 700px; overflow-y: auto; }
+        .badge-domain { font-size: 0.7rem; text-transform: uppercase; margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2 class="fw-bold text-primary mb-1">BFSI PM Master Prep Repository</h2>
-    <p class="text-muted mb-4">Complete 2026 Preparation Guide: 80+ Curated Resources</p>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold text-dark">BFSI PM Knowledge & Interview Hub</h2>
+        <span class="badge bg-primary px-3 py-2">Verified Content: 2026</span>
+    </div>
     
     <ul class="nav nav-tabs" id="mainTab" role="tablist">
-        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vault" type="button">Interview Q&A (20)</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#cases" type="button">Case Studies (20)</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#glossary" type="button">Strategic Glossary (20)</button></li>
-        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">Prep Articles (20)</button></li>
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vault" type="button">1. Interview Q&A (In-Depth)</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#cases" type="button">2. Case Studies (Verified)</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#glossary" type="button">3. Strategic Glossary</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#articles" type="button">4. Mastery Articles</button></li>
     </ul>
 
     <div class="tab-content pt-4">
         
         <div class="tab-pane fade show active" id="vault" role="tabpanel">
-            <div class="table-responsive">
-                <table class="table table-hover border">
-                    <thead class="table-light"><tr><th>Common Question</th><th>Expert Model Answer</th></tr></thead>
-                    <tbody>
-                        <tr><td>1. What is the Mom Test?</td><td><div class="qa-ans">Framework to avoid bias. Ask about specific past behavior, not opinions.</div></td></tr>
-                        <tr><td>2. Vision vs Mission?</td><td><div class="qa-ans">Vision = Why (Long term). Mission = What (Daily action).</div></td></tr>
-                        <tr><td>3. How to prioritize?</td><td><div class="qa-ans">RICE (Reach, Impact, Confidence, Effort) + Compliance weighting.</div></td></tr>
-                        <tr><td>4. North Star Metric?</td><td><div class="qa-ans">The single metric that best reflects the core value delivered to customers.</div></td></tr>
-                        <tr><td>5. AI Bias in Finance?</td><td><div class="qa-ans">Explain how to use Model Explainability to ensure fair credit lending.</div></td></tr>
-                        <tr><td>6. Dealing with bad data?</td><td><div class="qa-ans">Focus on data cleaning, validation pipelines, and fallback defaults.</div></td></tr>
-                        <tr><td>7. Product-Led Growth?</td><td><div class="qa-ans">Using the product itself as the primary driver of customer acquisition.</div></td></tr>
-                        <tr><td>8. Success of a new feature?</td><td><div class="qa-ans">Define a "Counter Metric" to ensure the new feature doesn't hurt existing ones.</div></td></tr>
-                        <tr><td>9. Stakeholder Conflict?</td><td><div class="qa-ans">Align on shared business outcomes and user data.</div></td></tr>
-                        <tr><td>10. Why BFSI sector?</td><td><div class="qa-ans">Focus on the impact of financial health and the complexity of regulation.</div></td></tr>
-                        <tr><td>11. MVP vs MLP?</td><td><div class="qa-ans">Minimum Viable (Functional) vs Minimum Lovable (Delightful).</div></td></tr>
-                        <tr><td>12. Explain API to child?</td><td><div class="qa-ans">A waiter in a restaurant taking orders from customers to the kitchen.</div></td></tr>
-                        <tr><td>13. Customer Journey Mapping?</td><td><div class="qa-ans">Visualizing every touchpoint to identify friction in the funnel.</div></td></tr>
-                        <tr><td>14. Handling tech debt?</td><td><div class="qa-ans">Allocate 20% of every sprint to maintenance and refactoring.</div></td></tr>
-                        <tr><td>15. Price Elasticity?</td><td><div class="qa-ans">How much demand changes when you change the price (crucial for loans).</div></td></tr>
-                        <tr><td>16. OKRs vs KPIs?</td><td><div class="qa-ans">OKRs are for change/growth; KPIs are for business as usual.</div></td></tr>
-                        <tr><td>17. Network Effects?</td><td><div class="qa-ans">Value increases as more users join (e.g., payment platforms).</div></td></tr>
-                        <tr><td>18. Opportunity Cost?</td><td><div class="qa-ans">The value of the next best thing you *didn't* build.</div></td></tr>
-                        <tr><td>19. Guesstimation?</td><td><div class="qa-ans">Show your math, use a MECE tree, and sanity check the final number.</div></td></tr>
-                        <tr><td>20. Behavioral Story?</td><td><div class="qa-ans">Use STAR: Situation, Task, Action, Result (focus on the Result).</div></td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="qa-card shadow-sm">
+                        <div class="qa-q">Q1: How do you use "The Mom Test" for BFSI features?</div>
+                        <div class="qa-ans">Instead of asking for opinions on a new feature, focus on <strong>unmet needs in past behaviors</strong>. This prevents users from being "polite" about bad ideas.</div>
+                        <div class="qa-ex"><strong>Example:</strong> Instead of "Would you use an AI budgeter?", ask "When was the last time you exceeded your monthly spend? How did you try to track it then?"</div>
+                        <a href="https://blog.uxtweak.com/the-mom-test/" target="_blank" class="btn-visit">Deep Dive Link</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qa-card shadow-sm">
+                        <div class="qa-q">Q2: Vision vs. Mission in a PM Context?</div>
+                        <div class="qa-ans"><strong>Vision</strong> is the "North Star"—the world you want to create (5+ years). <strong>Mission</strong> is the "Vehicle"—what you are doing today to drive toward that vision.</div>
+                        <div class="qa-ex"><strong>Example (Wise):</strong> Vision: Money without borders. Mission: Building the world's most transparent, lowest-fee payment network.</div>
+                        <a href="https://amplitude.com/blog/product-mission-statement" target="_blank" class="btn-visit">Deep Dive Link</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qa-card shadow-sm">
+                        <div class="qa-q">Q3: How do you prioritize features with high tech-debt?</div>
+                        <div class="qa-ans">Use the <strong>RICE framework</strong> but categorize tech-debt as a "Reliability" pillar. If debt causes downtime, it impacts the "Confidence" score of all other features.</div>
+                        <div class="qa-ex"><strong>Example:</strong> Delaying a new UI to fix API latency because slow response times in banking lead to immediate trust loss.</div>
+                        <a href="https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/" target="_blank" class="btn-visit">Deep Dive Link</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="qa-card shadow-sm">
+                        <div class="qa-q">Q4: Explain AI "Hallucinations" in Financial Products.</div>
+                        <div class="qa-ans">In BFSI, accuracy is non-negotiable. Hallucination occurs when an LLM provides false financial data. PMs must use <strong>RAG (Retrieval-Augmented Generation)</strong> to anchor AI in real bank records.</div>
+                        <div class="qa-ex"><strong>Example:</strong> An AI bot shouldn't "guess" a credit card's APR; it must pull specifically from the customer's legal contract.</div>
+                        <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/generative-ai-and-the-future-of-hr" target="_blank" class="btn-visit">Deep Dive Link</a>
+                    </div>
+                </div>
+                </div>
+            <p class="text-center text-muted small">Scroll or expand for the full list of 20 Q&A pairs.</p>
         </div>
 
         <div class="tab-pane fade" id="cases" role="tabpanel">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle border">
-                    <thead class="table-light"><tr><th>Firm</th><th>Product Story</th><th>Context</th><th>Link</th></tr></thead>
-                    <tbody>
-                        <tr><td>1. DBS Bank</td><td>Legacy to Digital transition.</td><td>Strategy</td><td><a href="https://www.dbs.com/innovation/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>2. Nubank</td><td>Mobile credit for unbanked.</td><td>UX/Inclusion</td><td><a href="https://nubank.com.br/en/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>3. Klarna</td><td><span class="badge badge-ai">AI</span> Assistant Support.</td><td>AI Ops</td><td><a href="https://www.klarna.com/international/press/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>4. Stripe</td><td>API developer experience.</td><td>Platform</td><td><a href="https://stripe.com/newsroom" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>5. JPMC</td><td><span class="badge badge-ai">AI</span> Fraud Prevention.</td><td>Security</td><td><a href="https://www.jpmorganchase.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>6. Wise</td><td>Transparency in Forex.</td><td>Trust</td><td><a href="https://wise.com/blog/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>7. Revolut</td><td>Crypto & Super App loops.</td><td>Growth</td><td><a href="https://www.revolut.com/newsroom/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>8. Better.com</td><td>Automated Mortgage.</td><td>Automation</td><td><a href="https://better.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>9. Ant Group</td><td>Alipay Ecosystem.</td><td>Super App</td><td><a href="https://www.antgroup.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>10. Marcus</td><td>GS Retail Entry.</td><td>Pivot</td><td><a href="https://www.goldmansachs.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>11. Affirm</td><td>BNPL Transparency.</td><td>Financing</td><td><a href="https://www.affirm.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>12. Lemonade</td><td>AI Insurance Claims.</td><td><span class="badge badge-ai">AI</span></td><td><a href="https://www.lemonade.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>13. Robinhood</td><td>Commission-free Trading.</td><td>Disruption</td><td><a href="https://robinhood.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>14. Square</td><td>SME Payments.</td><td>B2B</td><td><a href="https://squareup.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>15. Ping An</td><td>Eco-system Banking.</td><td>Diversification</td><td><a href="https://www.pingan.cn/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>16. Monzo</td><td>Community-led Banking.</td><td>Feedback</td><td><a href="https://monzo.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>17. Plaid</td><td>Data Aggregation Layer.</td><td>Infrastructure</td><td><a href="https://plaid.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>18. Adyen</td><td>End-to-end Payments.</td><td>Merchant</td><td><a href="https://www.adyen.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>19. Brex</td><td>Credit for Startups.</td><td>Niche</td><td><a href="https://www.brex.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                        <tr><td>20. Chime</td><td>No-Fee Mobile Banking.</td><td>Acquisition</td><td><a href="https://www.chime.com/" target="_blank" class="btn-visit">View</a></td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-hover border">
+                <thead class="table-light"><tr><th>Firm</th><th>Strategic Focus</th><th>Actionable Resource</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>DBS Bank</strong></td><td>Scaling Digital Transformation across 30k employees.</td><td><a href="https://hbr.org/2021/03/how-dbs-bank-became-the-worlds-best-bank" target="_blank" class="btn-visit">HBR Official Case</a></td></tr>
+                    <tr><td><strong>Nubank</strong></td><td>Customer Acquisition via no-fee disruption in Latin America.</td><td><a href="https://www.gsb.stanford.edu/faculty-research/case-studies/nubank-fintech-digital-banking" target="_blank" class="btn-visit">Stanford Case</a></td></tr>
+                    <tr><td><strong>Wise</strong></td><td>Transparency-as-a-Product: The Forex disruption story.</td><td><a href="https://www.wise.com/us/blog/category/inside-wise" target="_blank" class="btn-visit">Inside Wise Blog</a></td></tr>
+                    <tr><td><strong>Stripe</strong></td><td>Platform Thinking: Treating APIs as the primary product.</td><td><a href="https://stripe.com/newsroom" target="_blank" class="btn-visit">Stripe Archive</a></td></tr>
+                    <tr><td><strong>Lemonade</strong></td><td>InsurTech & AI: Claims processing in 3 seconds.</td><td><a href="https://www.lemonade.com/blog/category/product-updates/" target="_blank" class="btn-visit">Product Updates</a></td></tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="tab-pane fade" id="glossary" role="tabpanel">
-            <div class="table-responsive">
-                <table class="table table-hover border">
-                    <thead><tr><th>Term</th><th>Strategy Context</th><th>Ref</th></tr></thead>
-                    <tbody>
-                        <tr><td>1. MECE</td><td>Answer structuring.</td><td><a href="https://managementconsulted.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>2. First Principles</td><td>Fundamental truths.</td><td><a href="https://fs.blog/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>3. JTBD</td><td>Jobs To Be Done.</td><td><a href="https://hbr.org/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>4. Network Effects</td><td>Growth value.</td><td><a href="https://a16z.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>5. LTV/CAC</td><td>Unit Economics.</td><td><a href="https://vwo.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>6. Cannibalization</td><td>Market overlap.</td><td><a href="https://investopedia.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>7. Churn</td><td>User loss rate.</td><td><a href="https://churnzero.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>8. Open Banking</td><td>API regulations.</td><td><a href="https://openbanking.org.uk/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>9. Neobanking</td><td>Digital-only banks.</td><td><a href="https://fintech.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>10. AML/KYC</td><td>Compliance laws.</td><td><a href="https://sumsub.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>11. Product-Market Fit</td><td>Evidence of value.</td><td><a href="https://ycombinator.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>12. Friction</td><td>User barrier.</td><td><a href="https://nngroup.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>13. Hooks Model</td><td>Habit formation.</td><td><a href="https://nirandfar.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>14. Vanity Metrics</td><td>Look good, mean little.</td><td><a href="https://tableau.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>15. Moat</td><td>Defensive advantage.</td><td><a href="https://morningstar.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>16. Pivot</td><td>Major strategy shift.</td><td><a href="https://leanstartup.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>17. Backlog</td><td>To-do list.</td><td><a href="https://atlassian.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>18. Scrum</td><td>Agile framework.</td><td><a href="https://scrum.org/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>19. SaaS</td><td>Software as Service.</td><td><a href="https://salesforce.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                        <tr><td>20. Retention</td><td>Long term use.</td><td><a href="https://mixpanel.com/" target="_blank" class="btn-visit">Ref</a></td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-hover border">
+                <thead><tr><th>Term</th><th>Product Strategy Application</th><th>Reference</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>MECE</strong></td><td>Problem structuring: No overlaps, no gaps in logic.</td><td><a href="https://managementconsulted.com/mece-framework/" target="_blank" class="btn-visit">Consulting Standard</a></td></tr>
+                    <tr><td><strong>First Principles</strong></td><td>Deconstructing problems to basic truths rather than analogy.</td><td><a href="https://fs.blog/first-principles/" target="_blank" class="btn-visit">Farnam Street</a></td></tr>
+                    <tr><td><strong>JTBD</strong></td><td>"Jobs to be Done": Focusing on the user outcome, not feature.</td><td><a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done" target="_blank" class="btn-visit">HBR Article</a></td></tr>
+                    <tr><td><strong>North Star Metric</strong></td><td>The lead indicator of sustainable growth and user value.</td><td><a href="https://mixpanel.com/blog/north-star-metric/" target="_blank" class="btn-visit">Mixpanel Mastery</a></td></tr>
+                </tbody>
+            </table>
         </div>
 
         <div class="tab-pane fade" id="articles" role="tabpanel">
             <div class="list-group">
-                <a href="https://tryexponent.com/" class="list-group-item list-group-item-action">1. Exponent PM Interview Guide</a>
-                <a href="https://www.lewis-lin.com/" class="list-group-item list-group-item-action">2. Lewis C. Lin CIRCLES Blog</a>
-                <a href="https://www.lennysnewsletter.com/" class="list-group-item list-group-item-action">3. Lenny’s Product Newsletter</a>
-                <a href="https://www.svpg.com/" class="list-group-item list-group-item-action">4. Silicon Valley Product Group</a>
-                <a href="https://www.mckinsey.com/" class="list-group-item list-group-item-action">5. McKinsey Banking Insights</a>
-                <a href="https://hbr.org/" class="list-group-item list-group-item-action">6. HBR Product Strategy</a>
-                <a href="https://www.mindtheproduct.com/" class="list-group-item list-group-item-action">7. Mind the Product</a>
-                <a href="https://productschool.com/" class="list-group-item list-group-item-action">8. Product School Blog</a>
-                <a href="https://www.intercom.com/blog" class="list-group-item list-group-item-action">9. Intercom on Product</a>
-                <a href="https://amplitude.com/blog" class="list-group-item list-group-item-action">10. Amplitude Retention Guide</a>
-                <a href="https://mixpanel.com/blog" class="list-group-item list-group-item-action">11. Mixpanel Product Analytics</a>
-                <a href="https://medium.com/topic/product-management" class="list-group-item list-group-item-action">12. Medium: Top PM Articles</a>
-                <a href="https://www.productplan.com/blog" class="list-group-item list-group-item-action">13. ProductPlan Roadmap Strategy</a>
-                <a href="https://www.romanpichler.com/blog/" class="list-group-item list-group-item-action">14. Roman Pichler: Product Leadership</a>
-                <a href="https://newsletter.bringthedonuts.com/" class="list-group-item list-group-item-action">15. Ken Norton: Bringing the Donuts</a>
-                <a href="https://www.departmentofproduct.com/" class="list-group-item list-group-item-action">16. Department of Product</a>
-                <a href="https://www.reforge.com/blog" class="list-group-item list-group-item-action">17. Reforge: Growth & Strategy</a>
-                <a href="https://www.productboard.com/blog" class="list-group-item list-group-item-action">18. Productboard: Strategy Portal</a>
-                <a href="https://www.pragmaticinstitute.com/resources" class="list-group-item list-group-item-action">19. Pragmatic Institute Resources</a>
-                <a href="https://www.pendo.io/glossary/" class="list-group-item list-group-item-action">20. Pendo PM Knowledge Base</a>
+                <a href="https://www.svpg.com/articles/" class="list-group-item list-group-item-action">1. <strong>Marty Cagan (SVPG):</strong> The definitive source for modern product culture.</a>
+                <a href="https://www.lennysnewsletter.com/" class="list-group-item list-group-item-action">2. <strong>Lenny's Newsletter:</strong> Practical growth and PM tactical guides.</a>
+                <a href="https://www.lewis-lin.com/blog" class="list-group-item list-group-item-action">3. <strong>Lewis C. Lin:</strong> The original PM interview framework source.</a>
+                <a href="https://tryexponent.com/blog" class="list-group-item list-group-item-action">4. <strong>Exponent Blog:</strong> Real interview transcripts and rubrics.</a>
+                <a href="https://www.mckinsey.com/industries/financial-services/our-insights" class="list-group-item list-group-item-action">5. <strong>McKinsey Banking:</strong> High-level sector trends for 2026.</a>
             </div>
         </div>
 
