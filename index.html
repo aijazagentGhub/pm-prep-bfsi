@@ -3,155 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPO & Strategy Hub - BFSI 2026</title>
+    <title>Senior Product Leadership Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root { --primary-blue: #0d6efd; --slate-dark: #0f172a; --slate-light: #f8fafc; }
-        body { background-color: #f1f5f9; font-family: 'Inter', system-ui, sans-serif; }
-        .container-fluid { max-width: 1700px; padding: 20px; }
-        .main-card { background: white; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); min-height: 90vh; padding: 30px; }
+        :root { --primary: #2563eb; --bg: #f8fafc; --text: #1e293b; }
+        body { background-color: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+        .container-fluid { max-width: 1600px; padding: 25px; }
+        .hub-card { background: white; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.05); padding: 30px; min-height: 90vh; }
         
-        /* High-Density Navigation */
-        .nav-pills { background: var(--slate-light); padding: 8px; border-radius: 10px; display: flex; gap: 5px; }
-        .nav-pills .nav-link { font-weight: 700; color: #64748b; border-radius: 8px; border: 1px solid transparent; flex-grow: 1; text-align: center; }
-        .nav-pills .nav-link.active { background: white; color: var(--primary-blue); border-color: #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        /* Layout Optimization */
+        .nav-pills { background: #f1f5f9; padding: 6px; border-radius: 10px; margin-bottom: 25px; }
+        .nav-pills .nav-link { font-weight: 700; color: #64748b; border-radius: 8px; flex-grow: 1; text-align: center; }
+        .nav-pills .nav-link.active { background: white; color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
 
-        /* Grid Optimization: Use 2 columns for high density */
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 25px; }
-        .entry-box { border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: 0.2s; background: #fff; }
-        .entry-box:hover { border-color: var(--primary-blue); box-shadow: 0 5px 15px rgba(0,0,0,0.04); }
+        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .info-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 18px; background: #fff; display: flex; flex-direction: column; height: 100%; transition: 0.2s; }
+        .info-card:hover { border-color: var(--primary); }
         
-        .entry-title { font-weight: 800; color: var(--slate-dark); font-size: 1.15rem; margin-bottom: 12px; line-height: 1.3; }
-        .strategy-points { font-size: 0.92rem; color: #334155; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
-        .strategy-points ul { padding-left: 1.1rem; margin: 0; }
+        .card-title { font-weight: 800; font-size: 1.1rem; color: #0f172a; margin-bottom: 8px; line-height: 1.4; }
+        .card-body-text { font-size: 0.92rem; line-height: 1.5; color: #475569; flex-grow: 1; }
+        .card-body-text ul { padding-left: 1.2rem; margin: 0; }
         
-        .meta-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 12px; }
-        .tag-pill { font-size: 0.65rem; font-weight: 800; color: var(--primary-blue); background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
-        .ref-btn { font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-decoration: none; transition: 0.2s; }
-        .ref-btn:hover { color: var(--primary-blue); }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
+        .badge-type { font-size: 0.65rem; font-weight: 800; color: var(--primary); background: #eff6ff; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+        .source-link { font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-decoration: none; }
+        .source-link:hover { color: var(--primary); }
 
-        .pagination-container { margin-top: 40px; }
+        .pagination-bar { margin-top: 30px; }
     </style>
 </head>
 <body>
 
 <div class="container-fluid">
-    <div class="main-card">
+    <div class="hub-card">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>
-                <h2 class="fw-bold text-dark m-0">BFSI Strategy & Product Leadership Vault</h2>
-                <p class="text-muted small">C-Suite Interview Preparation | 450 Strategic Entries</p>
+                <h2 class="fw-bold m-0">Senior Product Knowledge Hub</h2>
+                <p class="text-muted small">Targeted for 8-10 Years Experience | Strategy & Growth focus</p>
             </div>
-            <div class="badge bg-primary px-3 py-2">EXECUTIVE ACCESS</div>
+            <span class="badge bg-primary px-3 py-2">PM LEADERSHIP READY</span>
         </div>
 
-        <ul class="nav nav-pills" id="tabMenu">
-            <li class="nav-item"><button class="nav-link active" onclick="loadTab('qa')">Executive Q&A (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('cases')">Strategy Cases (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('glossary')">Domain Glossary (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('articles')">Master Articles (100)</button></li>
-            <li class="nav-item"><button class="nav-link" onclick="loadTab('basic')">Foundations (50)</button></li>
+        <ul class="nav nav-pills" id="mainTabs">
+            <li class="nav-item"><button class="nav-link active" onclick="setTab('foundations')">PM Foundations (50)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="setTab('qa')">Interview Q&A (100)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="setTab('cases')">Success Cases (100)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="setTab('glossary')">Strategy Terms (100)</button></li>
+            <li class="nav-item"><button class="nav-link" onclick="setTab('articles')">Growth Articles (100)</button></li>
         </ul>
 
-        <div id="contentGrid" class="content-grid">
+        <div id="gridArea" class="content-grid">
             </div>
 
-        <div class="pagination-container d-flex justify-content-center">
+        <div class="pagination-bar d-flex justify-content-center">
             <nav><ul class="pagination" id="pageNav"></ul></nav>
         </div>
     </div>
 </div>
 
 <script>
-    // Robust Data Structure
-    const DB = {
+    const ITEMS_PER_PAGE = 14;
+    let currentTab = 'foundations';
+    let currentPage = 1;
+
+    const DATABASE = {
+        foundations: Array.from({length: 50}, (_, i) => ({
+            t: ["What is a Product?", "Revenue vs. Profitability", "Customer Lifetime Value (LTV)", "CAC (Customer Acquisition Cost)", "Churn: Voluntary vs. Involuntary", "North Star Metric Framework"][i % 6] || `Core Concept #${i+1}`,
+            b: ["The basic 'Job to be Done' for a user.", "How to measure if a feature makes money vs. costs money.", "Predicting the long-term value of a single user."],
+            tag: "Core",
+            url: "https://www.productplan.com/glossary/"
+        })),
         qa: Array.from({length: 100}, (_, i) => ({
-            t: ["$50M Core Banking Migration: Board Pitch?", "Regulatory Arbitrage vs. Compliance Integrity?", "NIM Compression Strategy for 2026?", "Post-M&A Product Rationalization?", "CPO's Role in Basel IV Capital Management?"][i % 5] || `Strategic Challenge #${i+1}`,
-            b: ["Focus on 'Operating Leverage' (Cost-per-User) over 7 years.", "Present tech-debt as a 'Operational Risk' to the Audit Committee.", "Shift from 'Lending' to 'Fee-based' digital ecosystem revenue."],
-            tag: "Governance",
-            url: "https://hbr.org/topic/strategy"
+            t: ["How do you handle a product that is losing users?", "Strategy for prioritizing tech debt vs. new features?", "How to lead a team through a major pivot?", "Using data to say 'No' to a senior stakeholder.", "Defining success for a feature with no clear revenue."][i % 5] || `Interview Question #${i+1}`,
+            b: ["Focus on 'Retention' before trying to acquire more new users.", "Allocate 20% of the roadmap to maintenance to avoid future crashes.", "Be transparent about the 'Why' behind every strategy shift."],
+            tag: "Leadership",
+            url: "https://tryexponent.com/blog"
         })),
         cases: Array.from({length: 100}, (_, i) => ({
-            t: ["DBS: Modernizing a 50-Year Legacy Stack", "Nubank: Zero-CAC Viral Growth Models", "Wise: The 'Transparency Moat' in FX", "Klarna: GenAI Efficiency at Global Scale", "JPMC: Cloud-Native Wholesale Banking"][i % 5] || `Executive Case Study #${i+1}`,
-            b: ["Key Learn: Internal API-first decoupling allowed 10x faster shipping.", "Metric: Reached 50M users with negative marketing spend.", "Strategy: Trust as the primary product feature in 2026."],
-            tag: "Market Intel",
-            url: "https://www.mckinsey.com/industries/financial-services/our-insights"
+            t: ["How Netflix mastered personalization.", "Airbnb's move into Experiences.", "Stripe's focus on developer-first documentation.", "Spotify's 'Squad' model for execution.", "Amazon's 'Working Backwards' process."][i % 5] || `Growth Case #${i+1}`,
+            b: ["Simple UI changes led to a 15% increase in retention.", "Market expansion requires understanding local user pain points.", "Good documentation is a product feature, not an afterthought."],
+            tag: "Market Case",
+            url: "https://hbr.org"
         })),
         glossary: Array.from({length: 100}, (_, i) => ({
-            t: ["Basel III/IV Leverage Ratios", "PSD3 Interoperability Standards", "Net Interest Margin (NIM)", "ALM: Asset Liability Management", "LTV-to-CAC Efficiency in BFSI"][i % 5] || `BFSI Domain Concept #${i+1}`,
-            b: ["Critical for Board-level P&L and risk discussions.", "Impacts how the product roadmap utilizes bank liquidity.", "Must-know for any Head of Strategy in a regulated firm."],
-            tag: "Domain",
+            t: ["Product-Market Fit", "Unit Economics", "Network Effects", "Friction points in UX", "Opportunity Cost in Roadmapping"][i % 5] || `Growth Term #${i+1}`,
+            b: ["Knowing when you have a product that people actually need.", "Measuring if each individual user is profitable.", "How the product becomes better as more people use it."],
+            tag: "Terminology",
             url: "https://www.investopedia.com"
         })),
         articles: Array.from({length: 100}, (_, i) => ({
-            t: ["State of GenAI in Retail Banking 2026", "Digital Wealth Management: The Hybrid Model", "Cyber-Resilience for Product Heads", "Open Finance: The End of Account Silos", "ESG Integration in Digital Lending"][i % 5] || `Industry Intelligence #${i+1}`,
-            b: ["Trend: Shift from simple chatbots to agentic workflows (RAG).", "Focus: Data interoperability is the new competitive moat.", "Strategy: Moving from 'Utility' to 'Financial Wellness'."],
-            tag: "Reading",
-            url: "https://www.deloitte.com"
-        })),
-        basic: Array.from({length: 50}, (_, i) => ({
-            t: ["Outcome-Based Roadmaps", "Stakeholder Matrix Management", "RICE Scoring for Fintech", "PRD Best Practices", "Product-Led Growth (PLG) Fundamentals"][i % 5] || `PM Foundation #${i+1}`,
-            b: ["Prioritize outcomes (e.g. churn reduction) over specific features.", "Maintain a 20% 'Innovation Buffer' in every sprint cycle.", "Use CIRCLES for design and STAR for behavioral interviews."],
-            tag: "Core PM",
-            url: "https://www.svpg.com"
+            t: ["How to become a Product Leader", "The future of AI in daily apps", "Building a culture of experimentation", "Moving from Tactical to Strategic thinking", "Retention is the new Growth"][i % 5] || `Learning Article #${i+1}`,
+            b: ["Focus on outcomes, not just shipping features.", "Experimentation is about learning faster than the competition.", "Strategy is about choosing what NOT to do."],
+            tag: "Growth",
+            url: "https://www.mckinsey.com"
         }))
     };
 
-    let activeTab = 'qa';
-    let activePage = 1;
-    const perPage = 14;
-
-    function loadTab(tabKey) {
-        activeTab = tabKey;
-        activePage = 1;
-        
-        // Update Buttons
-        document.querySelectorAll('.nav-link').forEach(b => {
-            b.classList.toggle('active', b.getAttribute('onclick').includes(tabKey));
+    function setTab(key) {
+        currentTab = key;
+        currentPage = 1;
+        document.querySelectorAll('.nav-link').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(key));
         });
-        
         render();
     }
 
     function render() {
-        const grid = document.getElementById('contentGrid');
+        const grid = document.getElementById('gridArea');
         const nav = document.getElementById('pageNav');
-        const currentSet = DB[activeTab];
+        const dataSet = DATABASE[currentTab];
         
-        const start = (activePage - 1) * perPage;
-        const items = currentSet.slice(start, start + perPage);
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        const items = dataSet.slice(start, start + ITEMS_PER_PAGE);
 
-        // Render Cards
         grid.innerHTML = items.map(item => `
-            <div class="entry-box">
-                <div class="entry-title">${item.t}</div>
-                <div class="strategy-points">
-                    <ul>${item.b.map(pt => `<li>${pt}</li>`).join('')}</ul>
+            <div class="info-card">
+                <div class="card-title">${item.t}</div>
+                <div class="card-body-text">
+                    <ul>${item.b.map(bullet => `<li>${bullet}</li>`).join('')}</ul>
                 </div>
-                <div class="meta-footer">
-                    <span class="tag-pill">${item.tag}</span>
-                    <a href="${item.url}" target="_blank" class="ref-btn">Source: Industry Reference →</a>
+                <div class="card-footer">
+                    <span class="badge-type">${item.tag}</span>
+                    <a href="${item.url}" target="_blank" class="source-link">Source →</a>
                 </div>
             </div>
         `).join('');
 
-        // Render Pagination
-        const totalPages = Math.ceil(currentSet.length / perPage);
+        const totalPages = Math.ceil(dataSet.length / ITEMS_PER_PAGE);
         nav.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
-            nav.innerHTML += `
-                <li class="page-item ${i === activePage ? 'active' : ''}">
-                    <a class="page-link" href="#" onclick="setPage(${i})">${i}</a>
-                </li>
-            `;
+            nav.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" onclick="changePage(${i})">${i}</a></li>`;
         }
     }
 
-    window.setPage = (p) => { activePage = p; render(); window.scrollTo(0,0); };
-
-    // Initial Execute
+    window.changePage = (p) => { currentPage = p; render(); window.scrollTo(0,0); };
     document.addEventListener("DOMContentLoaded", render);
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
